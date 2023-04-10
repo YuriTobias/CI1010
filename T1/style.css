@@ -8,20 +8,25 @@
 /* styles */
 body {
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+main {
+    display: flex;
 }
 
 .sidebar {
-    position: fixed;
     background-color: #18516c;
     width: 300px;
-    height: 100%;
-    top: 0;
-    left: 0;
+    height: 100vh;
     z-index: 1;
 }
 
 .nav-image {
     height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-image: url(images/nav_background.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -30,10 +35,8 @@ body {
 
 .nav-image img {
     width: 40%;
-    margin-top: 45px;
-    margin-left: 88px;
     border-radius: 50%;
-    border: 2px solid #fff;
+    border: 3px solid #fff;
 }
 
 .nav-links ul li {
@@ -54,15 +57,73 @@ body {
     transition: 0.4s;
 }
 
+.nav-social-medias {
+    font-size: 18px;
+    padding: 0px 40px;
+    position: fixed;
+    bottom: 35px;
+}
+
+.nav-social-medias a {
+    color: #fff;
+}
+
+.nav-social-medias a:hover {
+    font-size: larger;
+    transition: 0.4s;
+}
+
+.nav-social-medias i {
+    margin: 0px 27px;
+}
+
 .nav-footer {
     color: #fff;
+    width: 300px;
+    font-size: small;
+    position: fixed;
+    bottom: 10px;
+}
+
+.nav-footer p {
     text-align: center;
-    margin-top: 100%;
 }
 
 .home {
-    margin-left: 300px;
-    padding: 5px;
-    height: 100%;
-    background-color: #011324;
+    color: #fff;
+    width: calc(100% - 300px);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #020d18;
+}
+
+.home h2 {
+    text-align: center;
+    font-family: "Pacifico", cursive;
+    font-size: 3em;
+    margin: 50px;
+}
+
+.about-home {
+    margin: 0px 20px;
+    color: #18516c;
+}
+
+.home-snd-row {
+    height: 60%;
+    display: flex;
+    align-items: center;
+}
+
+.home p {
+    max-width: 500px;
+    text-align: center;
+    margin: 0px 100px;
+}
+
+.home img {
+    max-width: 400px;
+    border-radius: 50%;
+    margin: 0px 100px;
 }
