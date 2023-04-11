@@ -28,7 +28,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(images/nav_background.png);
+    background-image: url(../images/nav_background.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -90,7 +90,7 @@ main {
     text-align: center;
 }
 
-.home {
+.experience {
     color: #fff;
     height: 100vh;
     display: flex;
@@ -98,35 +98,58 @@ main {
     background-color: #020d18;
 }
 
-.home h2 {
+.experience h2 {
     text-align: center;
     font-family: "Pacifico", cursive;
     font-size: 3em;
     margin: 50px;
 }
 
-.about-home {
-    margin: 0px 20px;
-    color: #18516c;
-}
-
-.home-snd-row {
+.experience-snd-row {
     height: 60%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-right: 40px;
 }
 
-.home p {
-    max-width: 70%;
-    text-align: center;
-    margin-left: 150px;
-    margin-right: 100px;
-}
-
-.home img {
-    max-width: 30%;
+.experience-snd-row section img {
+    width: 30%;
     border-radius: 50%;
-    margin-left: 100px;
-    margin-right: 150px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    padding: 30px;
+    background-color: #18516c;
+    border-radius: 15px;
+    border-top: 10px solid #114157;
+    border-left: 10px solid #114157;
+}
+
+.cards h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.cards-snd-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cards img {
+    max-width: 130px;
+    max-height: 130px;
+}
+
+.cards p {
+    text-align: center;
+    padding: 20px;
+}
+
+.cards span {
+    text-align: end;
 }

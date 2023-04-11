@@ -28,7 +28,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(images/nav_background.png);
+    background-image: url(../images/nav_background.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -90,43 +90,39 @@ main {
     text-align: center;
 }
 
-.home {
+.projects {
     color: #fff;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: #020d18;
 }
 
-.home h2 {
+.projects h2 {
     text-align: center;
     font-family: "Pacifico", cursive;
     font-size: 3em;
     margin: 50px;
 }
 
-.about-home {
-    margin: 0px 20px;
-    color: #18516c;
-}
-
-.home-snd-row {
+.projects-snd-row {
     height: 60%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin: 0px 150px;
 }
 
-.home p {
-    max-width: 70%;
-    text-align: center;
-    margin-left: 150px;
-    margin-right: 100px;
+.projects-snd-row section {
+    padding-bottom: 30px;
 }
 
-.home img {
-    max-width: 30%;
-    border-radius: 50%;
-    margin-left: 100px;
-    margin-right: 150px;
+.projects-snd-row section h3 {
+    padding-bottom: 5px;
+}
+
+.projects-snd-row section h5 {
+    padding-bottom: 5px;
 }
