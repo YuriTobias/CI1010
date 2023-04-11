@@ -108,25 +108,26 @@ main {
 .experience-snd-row {
     height: 60%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding-right: 40px;
 }
 
 .experience-snd-row section img {
-    width: 30%;
+    width: 20%;
     border-radius: 50%;
 }
 
 .cards {
     display: flex;
     flex-direction: column;
-    margin-left: 40px;
+    margin: 0px 30px;
     padding: 30px;
     background-color: #18516c;
     border-radius: 15px;
     border-top: 10px solid #114157;
     border-left: 10px solid #114157;
+    width: 558px;
+    height: 262px;
 }
 
 .cards h3 {
@@ -141,12 +142,13 @@ main {
 }
 
 .cards img {
-    max-width: 130px;
-    max-height: 130px;
+    max-width: 97px;
+    max-height: 97px;
 }
 
 .cards p {
     text-align: center;
+    font-size: 14px;
     padding: 20px;
 }
 
