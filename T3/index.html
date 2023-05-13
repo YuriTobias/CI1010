@@ -5,5 +5,16 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
-    <body></body>
+    <body onmousemove="findMouseCursor(event)">
+        <canvas id="line" width="500" height="500" style="border: 2px solid #000"></canvas>
+        <p>
+            Mouse coordinators: <br />
+            x:
+            <input type="text" id="coordX" size="5" />
+            y:
+            <input type="text" id="coordY" size="5" />
+        </p>
+        <!-- Import javaScript -->
+        <script src="index.js"></script>
+    </body>
 </html>
