@@ -4,9 +4,14 @@
         <title>Trabalho 3 - Yuri Tobias</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            body {
+                margin: 0;
+            }
+        </style>
     </head>
     <body onmousemove="findMouseCursor(event)">
-        <canvas id="line" width="500" height="500" style="border: 2px solid #000"></canvas>
+        <canvas id="canvas" width="500" height="500" style="border: 2px solid #000" onmousedown="moveElem(event)"></canvas>
         <p>
             Mouse coordinators: <br />
             x:
