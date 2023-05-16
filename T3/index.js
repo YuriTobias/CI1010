@@ -147,8 +147,14 @@ function dropper(event) {
 
 /* Verifies if mouse is over the line */
 function belongsToEquation(event, tgt, x1, y1, x2, y2) {
-    num = y2 - y1;
-    den = x2 - x1;
+    if (y2 > y1) {
+        num = y2 - y1;
+        den = x2 - x1;
+    } else {
+        num = y1 - y2;
+        den = x1 - x2;
+    }
+
     coefAng = num / den;
     coefLin = y1 - coefAng * x1;
 
