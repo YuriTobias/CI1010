@@ -1,18 +1,6 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-let diffX0,
-    diffY0,
-    diffX1,
-    diffY1,
-    num,
-    den,
-    coefAng,
-    coefLin,
-    result,
-    begin,
-    end,
-    meio;
-
+let diffX0, diffY0, diffX1, diffY1;
 let tgt = [];
 
 let line = {
@@ -46,55 +34,60 @@ function findMouseCursor(event) {
 
 /* Moves the element */
 function moveElem(event) {
-    /* Differences between the mouse click and line axis */
-    // diffX0 = event.clientX - line.coordX[tgt];
-    // diffY0 = event.clientY - line.coordY[tgt];
-    // diffX1 = event.clientX - line.endX[tgt];
-    // diffY1 = event.clientY - line.endY[tgt];
-
-    meio = true;
     if (event.button == 0) {
         /* Checks if it's an end of the line
          If so, then moves the point or points belonging to that end */
-        for (i in line.coordX) {
+        for (i = 0; i < line.points; i++) {
             if (
-                event.clientX >= line.coordX[i] - 5 &&
-                event.clientX <= line.coordX[i] + 7
+                distanceBwTwoPoints(
+                    event.clientX,
+                    event.clientY,
+                    line.coordX[i],
+                    line.coordY[i]
+                ) <= 5 &&
+                tgt == 0
             ) {
-                if (
-                    event.clientY >= line.coordY[i] - 5 &&
-                    event.clientY <= line.coordY[i] + 5
-                ) {
-                    meio = false;
-                    tgt.push(i);
-                    canvas.addEventListener("mousemove", pointMover);
-                }
+                tgt.push(i);
+                canvas.addEventListener("mousemove", pointMover);
+                canvas.addEventListener("mouseup", dropper);
             }
         }
 
-        if (meio) {
-            /* Checks if it's over some line */
-            for (i = 0; i < line.coordX.length - 1; i++) {
-                if (
-                    pDistance(
-                        event.clientX,
-                        event.clientY,
-                        line.coordX[i],
-                        line.coordY[i],
-                        line.coordX[i + 1],
-                        line.coordY[i + 1]
-                    ) <= 10
-                ) {
-                    tgt.push(i);
-                    tgt.push(i + 1);
-                    diffX0 = event.clientX - line.coordX[tgt[0]];
-                    diffY0 = event.clientY - line.coordY[tgt[0]];
-                    diffX1 = event.clientX - line.coordX[tgt[1]];
-                    diffY1 = event.clientY - line.coordY[tgt[1]];
-                    // console.log(tgt);
-                    console.log("Perto suficiente de: " + i + " e " + (i + 1));
-                    canvas.addEventListener("mousemove", midMover);
-                }
+        /* Checks if it's over some line */
+        for (i = 0; i < line.points - 1; i++) {
+            if (
+                pDistance(
+                    event.clientX,
+                    event.clientY,
+                    line.coordX[i],
+                    line.coordY[i],
+                    line.coordX[i + 1],
+                    line.coordY[i + 1]
+                ) <= 10 &&
+                distanceBwTwoPoints(
+                    event.clientX,
+                    event.clientY,
+                    line.coordX[i],
+                    line.coordY[i]
+                ) > 5 &&
+                distanceBwTwoPoints(
+                    event.clientX,
+                    event.clientY,
+                    line.coordX[i + 1],
+                    line.coordY[i + 1]
+                ) > 5 &&
+                tgt == 0
+            ) {
+                tgt.push(i);
+                tgt.push(i + 1);
+
+                /* Differences between the mouse click and line axis */
+                diffX0 = event.clientX - line.coordX[tgt[0]];
+                diffY0 = event.clientY - line.coordY[tgt[0]];
+                diffX1 = event.clientX - line.coordX[tgt[1]];
+                diffY1 = event.clientY - line.coordY[tgt[1]];
+                canvas.addEventListener("mousemove", midMover);
+                canvas.addEventListener("mouseup", dropper);
             }
         }
     }
@@ -117,17 +110,26 @@ function moveElem(event) {
 
 /* The function that change the values of the element's axis */
 function midMover(event) {
-    console.log("tgt: " + tgt);
     clear();
     line.coordX[tgt[0]] = event.clientX - diffX0;
     line.coordY[tgt[0]] = event.clientY - diffY0;
     line.coordX[tgt[1]] = event.clientX - diffX1;
     line.coordY[tgt[1]] = event.clientY - diffY1;
+    if (tgt[0] == 0 && line.points > 3) {
+        console.log("Entrei no troço");
+        line.coordX[line.coordX.length - 1] = line.coordX[tgt[0]];
+        line.coordY[line.coordY.length - 1] = line.coordY[tgt[0]];
+    } else if (tgt[1] == line.points - 1 && line.points > 3) {
+        console.log("Entrei no troço 2");
+        line.coordX[0] = line.coordX[tgt[1]];
+        line.coordY[0] = line.coordY[tgt[1]];
+    }
     line.draw();
 }
 
 /* The function that change the values of the element's top axis */
 function pointMover(event) {
+    console.log("Entrei no point mover " + tgt);
     clear();
     if (tgt.length == 2) {
         line.coordX[tgt[0]] = event.clientX;
@@ -147,66 +149,11 @@ function dropper(event) {
     canvas.removeEventListener("mouseup", dropper);
     canvas.removeEventListener("mousemove", midMover);
     canvas.removeEventListener("mousemove", pointMover);
-    for (n in tgt) {
+    for (i = 0; i < tgt.length; i++) {
         tgt.pop();
     }
     tgt.pop();
 }
-
-/* Verifies if mouse is over the line */
-// function belongsToEquation(event, tgt, x1, y1, x2, y2) {
-//     if (y2 > y1) {
-//         num = y2 - y1;
-//         den = x2 - x1;
-//     } else {
-//         num = y1 - y2;
-//         den = x1 - x2;
-//     }
-
-//     coefAng = num / den;
-//     coefLin = y1 - coefAng * x1;
-
-//     if (coefAng == Infinity) {
-//         if (diffX0 >= -5 && diffX0 <= 7) {
-//             return true;
-//         }
-//     }
-
-//     console.log("coefLin: " + coefLin);
-//     if (coefAng != Infinity && coefLin != Infinity) {
-//         result = Math.trunc(coefAng * event.clientX + coefLin);
-//         if (result >= event.clientY - 5 && result <= event.clientY + 5) {
-//             return true;
-//         }
-//     }
-
-//     return false;
-// }// if (tgt >= 0) {
-//     if (
-//         (event.clientY > line.coordY[tgt] + 5 &&
-//             event.clientY < line.endY[tgt] - 5) ||
-//         (event.clientY > line.endY[tgt] + 5 &&
-//             event.clientY < line.coordY[tgt] - 5) ||
-//         (event.clientX > line.coordX[tgt] + 5 &&
-//             event.clientX < line.endX[tgt] - 5) ||
-//         (event.clientX > line.endX[tgt] + 5 &&
-//             event.clientX < line.coordX[tgt] - 5)
-//     ) {
-//         console.log("metade");
-//         if (
-//             belongsToEquation(
-//                 event,
-//                 tgt,
-//                 line.coordX[tgt],
-//                 line.coordY[tgt],
-//                 line.endX[tgt],
-//                 line.endY[tgt]
-//             )
-//         ) {
-//             canvas.addEventListener("mousemove", mover);
-//         }
-//     }
-// }
 
 function pDistance(x, y, x1, y1, x2, y2) {
     var A = x - x1;
@@ -237,6 +184,10 @@ function pDistance(x, y, x1, y1, x2, y2) {
     var dx = x - xx;
     var dy = y - yy;
     return Math.sqrt(dx * dx + dy * dy);
+}
+
+function distanceBwTwoPoints(x, y, x1, y1) {
+    return Math.sqrt(Math.pow(x1 - x, 2) + Math.pow(y1 - y, 2));
 }
 
 function drawTriangle() {
@@ -294,7 +245,7 @@ function drawHeptagon() {
     line.draw();
 }
 
-function drawTriangle() {
+function drawOctogon() {
     let x = [250, 150, 350, 250];
     let y = [100, 300, 300, 100];
     for (i in x) {
@@ -318,6 +269,3 @@ function drawTriangle() {
 // line.coordY.push(100);
 // line.points++;
 // line.draw();
-drawHeptagon();
-console.log(line.coordX);
-console.log(line.coordY);
