@@ -92,18 +92,37 @@ function moveElem(event) {
         }
     }
 
-    // if (event.button == 2 && tgt >= 0) {
-    //     console.log("tgt inside: " + line.draw();tgt);
-    //     begin = line.endX[tgt];
-    //     end = line.endY[tgt];
-    //     line.endX[tgt] = event.clientX;
-    //     line.endY[tgt] = event.cldiffX0 = event.clientX - line.coordX[tgt[0]];
-    //     line.coordX.push(event.clientX);
-    //     line.coordY.push(event.clientY);
-    //     line.endX.push(begin);
-    //     line.endY.push(end);
-    //     line.draw();
-    // }
+    if (event.button == 2) {
+        for (i = 0; i < line.points - 1; i++) {
+            if (
+                pDistance(
+                    event.clientX,
+                    event.clientY,
+                    line.coordX[i],
+                    line.coordY[i],
+                    line.coordX[i + 1],
+                    line.coordY[i + 1]
+                ) <= 10 &&
+                distanceBwTwoPoints(
+                    event.clientX,
+                    event.clientY,
+                    line.coordX[i],
+                    line.coordY[i]
+                ) > 5 &&
+                distanceBwTwoPoints(
+                    event.clientX,
+                    event.clientY,
+                    line.coordX[i + 1],
+                    line.coordY[i + 1]
+                ) > 5
+            ) {
+                line.coordX.splice(i + 1, 0, event.clientX);
+                line.coordY.splice(i + 1, 0, event.clientY);
+                line.points++;
+                line.draw();
+            }
+        }
+    }
 
     canvas.addEventListener("mouseup", dropper);
 }
@@ -111,25 +130,39 @@ function moveElem(event) {
 /* The function that change the values of the element's axis */
 function midMover(event) {
     clear();
-    line.coordX[tgt[0]] = event.clientX - diffX0;
-    line.coordY[tgt[0]] = event.clientY - diffY0;
-    line.coordX[tgt[1]] = event.clientX - diffX1;
-    line.coordY[tgt[1]] = event.clientY - diffY1;
-    if (tgt[0] == 0 && line.points > 3) {
-        console.log("Entrei no troço");
+    if (
+        tgt[0] === 0 &&
+        line.coordX[line.coordX.length - 1] === line.coordX[tgt[0]] &&
+        line.coordY[line.coordY.length - 1] === line.coordY[tgt[0]]
+    ) {
+        line.coordX[tgt[0]] = event.clientX - diffX0;
+        line.coordY[tgt[0]] = event.clientY - diffY0;
+        line.coordX[tgt[1]] = event.clientX - diffX1;
+        line.coordY[tgt[1]] = event.clientY - diffY1;
         line.coordX[line.coordX.length - 1] = line.coordX[tgt[0]];
         line.coordY[line.coordY.length - 1] = line.coordY[tgt[0]];
-    } else if (tgt[1] == line.points - 1 && line.points > 3) {
-        console.log("Entrei no troço 2");
+    } else if (
+        tgt[1] === line.points - 1 &&
+        line.coordX[0] === line.coordX[tgt[1]] &&
+        line.coordY[0] === line.coordY[tgt[1]]
+    ) {
+        line.coordX[tgt[0]] = event.clientX - diffX0;
+        line.coordY[tgt[0]] = event.clientY - diffY0;
+        line.coordX[tgt[1]] = event.clientX - diffX1;
+        line.coordY[tgt[1]] = event.clientY - diffY1;
         line.coordX[0] = line.coordX[tgt[1]];
         line.coordY[0] = line.coordY[tgt[1]];
+    } else {
+        line.coordX[tgt[0]] = event.clientX - diffX0;
+        line.coordY[tgt[0]] = event.clientY - diffY0;
+        line.coordX[tgt[1]] = event.clientX - diffX1;
+        line.coordY[tgt[1]] = event.clientY - diffY1;
     }
     line.draw();
 }
 
 /* The function that change the values of the element's top axis */
 function pointMover(event) {
-    console.log("Entrei no point mover " + tgt);
     clear();
     if (tgt.length == 2) {
         line.coordX[tgt[0]] = event.clientX;
@@ -190,6 +223,17 @@ function distanceBwTwoPoints(x, y, x1, y1) {
     return Math.sqrt(Math.pow(x1 - x, 2) + Math.pow(y1 - y, 2));
 }
 
+function drawLine() {
+    let x = [250, 250];
+    let y = [100, 400];
+    for (i in x) {
+        line.coordX.push(x[i]);
+        line.coordY.push(y[i]);
+        line.points++;
+    }
+    line.draw();
+}
+
 function drawTriangle() {
     let x = [250, 150, 350, 250];
     let y = [100, 300, 300, 100];
@@ -235,8 +279,8 @@ function drawHexagon() {
 }
 
 function drawHeptagon() {
-    let x = [250, 347, 400, 347, 250, 154, 100, 250];
-    let y = [400, 347, 250, 154, 100, 154, 250, 400];
+    let x = [250, 400, 430, 320, 180, 70, 100, 250];
+    let y = [100, 180, 310, 400, 400, 310, 180, 100];
     for (i in x) {
         line.coordX.push(x[i]);
         line.coordY.push(y[i]);
@@ -246,8 +290,8 @@ function drawHeptagon() {
 }
 
 function drawOctogon() {
-    let x = [250, 150, 350, 250];
-    let y = [100, 300, 300, 100];
+    let x = [390, 323, 250, 178, 110, 178, 250, 323, 390];
+    let y = [250, 298, 327, 298, 250, 203, 174, 203, 250];
     for (i in x) {
         line.coordX.push(x[i]);
         line.coordY.push(y[i]);
@@ -256,16 +300,56 @@ function drawOctogon() {
     line.draw();
 }
 
-// line.coordX.push(250);
-// line.coordY.push(100);
-// line.points++;
-// line.coordX.push(250);
-// line.coordY.push(400);
-// line.points++;
-// line.coordX.push(300);
-// line.coordY.push(400);
-// line.points++;
-// line.coordX.push(250);
-// line.coordY.push(100);
-// line.points++;
-// line.draw();
+function checkInput(event) {
+    event.preventDefault();
+    let answer = document.getElementById("inputValue");
+
+    switch (+answer.value) {
+        case 3:
+            clear();
+            line.coordX = [];
+            line.coordY = [];
+            line.points = 0;
+            drawTriangle();
+            break;
+        case 4:
+            clear();
+            line.coordX = [];
+            line.coordY = [];
+            line.points = 0;
+            drawSquare();
+            break;
+        case 5:
+            clear();
+            line.coordX = [];
+            line.coordY = [];
+            line.points = 0;
+            drawPentagon();
+            break;
+        case 6:
+            clear();
+            line.coordX = [];
+            line.coordY = [];
+            line.points = 0;
+            drawHexagon();
+            break;
+        case 7:
+            clear();
+            line.coordX = [];
+            line.coordY = [];
+            line.points = 0;
+            drawHeptagon();
+            break;
+        case 8:
+            clear();
+            line.coordX = [];
+            line.coordY = [];
+            line.points = 0;
+            drawOctogon();
+            break;
+        default:
+            break;
+    }
+}
+
+drawLine();
