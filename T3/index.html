@@ -11,13 +11,19 @@
         </style>
     </head>
     <body onmousemove="findMouseCursor(event)">
-        <canvas id="canvas" width="500" height="500" style="border: 2px solid #000" onmousedown="moveElem(event)"></canvas>
+        <canvas
+            id="canvas"
+            width="500"
+            height="500"
+            style="border: 2px solid #000"
+            onmousedown="moveElem(event)"
+        ></canvas>
         <p>
             Mouse coordinators: <br />
             x:
-            <input type="text" id="startX" size="5" />
+            <input type="text" id="coordX" size="5" />
             y:
-            <input type="text" id="startY" size="5" />
+            <input type="text" id="coordY" size="5" />
         </p>
         <!-- Import javaScript -->
         <script src="index.js"></script>

@@ -1,17 +1,28 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-let diffX, diffY, diffEX, diffEY, tgt, num, den, coefAng, coefLin, result, begin, end;
+let diffX,
+    diffY,
+    diffEX,
+    diffEY,
+    num,
+    den,
+    coefAng,
+    coefLin,
+    result,
+    begin,
+    end;
+
+let tgt = [];
 
 let line = {
-    startX: [],
-    startY: [],
-    endX: [],
-    endY: [],
+    points: 0,
+    coordX: [],
+    coordY: [],
     draw() {
         ctx.beginPath();
-        for (i in this.startX) {
-            ctx.moveTo(this.startX[i], this.startY[i]);
-            ctx.lineTo(this.endX[i], this.endY[i]);
+        ctx.moveTo(this.coordX[0], this.coordY[0]);
+        for (let i = 1; i < this.points; i++) {
+            ctx.lineTo(this.coordX[i], this.coordY[i]);
         }
         ctx.lineWidth = 3;
         ctx.stroke();
@@ -27,80 +38,77 @@ function clear() {
 
 /* Get the mouse cursor */
 function findMouseCursor(event) {
-    document.getElementById("startX").value = event.clientX;
-    document.getElementById("startY").value = event.clientY;
+    document.getElementById("coordX").value = event.clientX;
+    document.getElementById("coordY").value = event.clientY;
 }
 
 /* Moves the element */
 function moveElem(event) {
-    /* Gets the target line */
-    for (i in line.startX) {
-        console.log("entrei");
-        if (
-            (event.clientX >= line.startX[i] - 5 && event.clientX <= line.endX[i] + 7) ||
-            (event.clientX >= line.endX[i] - 7 && event.clientX <= line.startX[i] + 5)
-        ) {
-            if (
-                (event.clientY >= line.startY[i] - 5 && event.clientY <= line.endY[i] + 5) ||
-                (event.clientY >= line.endY[i] - 5 && event.clientY <= line.startY[i] + 5)
-            ) {
-                console.log(i);
-                tgt = i;
-            }
-        }
-    }
-
     /* Differences between the mouse click and line axis */
-    diffX = event.clientX - line.startX[tgt];
-    diffY = event.clientY - line.startY[tgt];
-    diffEX = event.clientX - line.endX[tgt];
-    diffEY = event.clientY - line.endY[tgt];
+    // diffX = event.clientX - line.coordX[tgt];
+    // diffY = event.clientY - line.coordY[tgt];
+    // diffEX = event.clientX - line.endX[tgt];
+    // diffEY = event.clientY - line.endY[tgt];
 
     if (event.button == 0) {
-        /* If it's the top end of the line */
-        if (event.clientX >= line.startX[tgt] - 5 && event.clientX <= line.startX[tgt] + 7) {
-            if (event.clientY >= line.startY[tgt] - 5 && event.clientY <= line.startY[tgt] + 5) {
-                console.log("ponta superior");
-                canvas.addEventListener("mousemove", topTipMover);
-            }
-        }
-
-        /* If it's the bottom end of the line */
-        if (event.clientX >= line.endX[tgt] - 5 && event.clientX <= line.endX[tgt] + 7) {
-            if (event.clientY >= line.endY[tgt] - 5 && event.clientY <= line.endY[tgt] + 5) {
-                console.log("ponta inferior");
-                canvas.addEventListener("mousemove", botTipMover);
-            }
-        }
-
-        /* If it's half the line */
-        if (tgt >= 0) {
+        /* Checks if it's an end of the line
+         If so, then moves the point or points belonging to that end */
+        for (i in line.coordX) {
             if (
-                (event.clientY > line.startY[tgt] + 5 && event.clientY < line.endY[tgt] - 5) ||
-                (event.clientY > line.endY[tgt] + 5 && event.clientY < line.startY[tgt] - 5) ||
-                (event.clientX > line.startX[tgt] + 5 && event.clientX < line.endX[tgt] - 5) ||
-                (event.clientX > line.endX[tgt] + 5 && event.clientX < line.startX[tgt] - 5)
+                event.clientX >= line.coordX[i] - 5 &&
+                event.clientX <= line.coordX[i] + 7
             ) {
-                console.log("metade");
-                if (belongsToEquation(event, tgt, line.startX[tgt], line.startY[tgt], line.endX[tgt], line.endY[tgt])) {
-                    canvas.addEventListener("mousemove", mover);
+                if (
+                    event.clientY >= line.coordY[i] - 5 &&
+                    event.clientY <= line.coordY[i] + 5
+                ) {
+                    tgt.push(i);
+                    canvas.addEventListener("mousemove", pointMover);
                 }
             }
         }
+
+        /* Checks if it's over some line */
+        // if (tgt >= 0) {
+        //     if (
+        //         (event.clientY > line.coordY[tgt] + 5 &&
+        //             event.clientY < line.endY[tgt] - 5) ||
+        //         (event.clientY > line.endY[tgt] + 5 &&
+        //             event.clientY < line.coordY[tgt] - 5) ||
+        //         (event.clientX > line.coordX[tgt] + 5 &&
+        //             event.clientX < line.endX[tgt] - 5) ||
+        //         (event.clientX > line.endX[tgt] + 5 &&
+        //             event.clientX < line.coordX[tgt] - 5)
+        //     ) {
+        //         console.log("metade");
+        //         if (
+        //             belongsToEquation(
+        //                 event,
+        //                 tgt,
+        //                 line.coordX[tgt],
+        //                 line.coordY[tgt],
+        //                 line.endX[tgt],
+        //                 line.endY[tgt]
+        //             )
+        //         ) {
+        //             canvas.addEventListener("mousemove", mover);
+        //         }
+        //     }
+        // }
     }
 
-    if (event.button == 2 && tgt >= 0) {
-        console.log("tgt inside: " + tgt);
-        begin = line.endX[tgt];
-        end = line.endY[tgt];
-        line.endX[tgt] = event.clientX;
-        line.endY[tgt] = event.clientY;
-        line.startX.push(event.clientX);
-        line.startY.push(event.clientY);
-        line.endX.push(begin);
-        line.endY.push(end);
-        line.draw();
-    }
+    // if (event.button == 2 && tgt >= 0) {
+    //     console.log("tgt inside: " + tgt);
+    //     begin = line.endX[tgt];
+    //     end = line.endY[tgt];
+    //     line.endX[tgt] = event.clientX;
+    //     line.endY[tgt] = event.clientY;
+    //     line.coordX.push(event.clientX);
+    //     line.coordY.push(event.clientY);
+    //     line.endX.push(begin);
+    //     line.endY.push(end);
+    //     line.draw();
+    // }
 
     canvas.addEventListener("mouseup", dropper);
 }
@@ -110,8 +118,8 @@ function mover(event) {
     console.log("tgt: " + tgt);
     clear();
     if (tgt == 0) {
-        line.startX[tgt] = event.clientX - diffX;
-        line.startY[tgt] = event.clientY - diffY;
+        line.coordX[tgt] = event.clientX - diffX;
+        line.coordY[tgt] = event.clientY - diffY;
     } else {
         line.endX[tgt - 1] = event.clientX - diffX;
         line.endY[tgt - 1] = event.clientY - diffY;
@@ -122,18 +130,18 @@ function mover(event) {
 }
 
 /* The function that change the values of the element's top axis */
-function topTipMover(event) {
+function pointMover(event) {
     clear();
-    line.startX[tgt] = event.clientX - diffX;
-    line.startY[tgt] = event.clientY - diffY;
-    line.draw();
-}
-
-/* The function that change the values of the element's bottom axis */
-function botTipMover(event) {
-    clear();
-    line.endX[tgt] = event.clientX - diffEX;
-    line.endY[tgt] = event.clientY - diffEY;
+    if (tgt.length == 2) {
+        line.coordX[tgt[0]] = event.clientX;
+        line.coordY[tgt[0]] = event.clientY;
+        line.coordX[tgt[1]] = event.clientX;
+        line.coordY[tgt[1]] = event.clientY;
+    }
+    if (tgt.length == 1) {
+        line.coordX[tgt[0]] = event.clientX;
+        line.coordY[tgt[0]] = event.clientY;
+    }
     line.draw();
 }
 
@@ -141,8 +149,11 @@ function botTipMover(event) {
 function dropper(event) {
     canvas.removeEventListener("mouseup", dropper);
     canvas.removeEventListener("mousemove", mover);
-    canvas.removeEventListener("mousemove", topTipMover);
-    canvas.removeEventListener("mousemove", botTipMover);
+    canvas.removeEventListener("mousemove", pointMover);
+    for (n in tgt) {
+        tgt.pop();
+    }
+    tgt.pop();
 }
 
 /* Verifies if mouse is over the line */
@@ -175,8 +186,18 @@ function belongsToEquation(event, tgt, x1, y1, x2, y2) {
     return false;
 }
 
-line.startX.push(250);
-line.startY.push(100);
-line.endX.push(250);
-line.endY.push(400);
+line.coordX.push(250);
+line.coordY.push(100);
+line.points++;
+line.coordX.push(250);
+line.coordY.push(400);
+line.points++;
+// line.coordX.push(300);
+// line.coordY.push(400);
+// line.points++;
+// line.coordX.push(250);
+// line.coordY.push(100);
+// line.points++;
 line.draw();
+console.log(line.coordX);
+console.log(line.coordY);
