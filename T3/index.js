@@ -1,17 +1,16 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-let diffX, diffY, diffEX, diffEY, tgt;
+let diffX, diffY, diffEX, diffEY, tgt, num, den, coefAng, coefLin, result, begin, end;
 
 let line = {
-    height: [],
-    coordX: [],
-    coordY: [],
+    startX: [],
+    startY: [],
     endX: [],
     endY: [],
     draw() {
         ctx.beginPath();
-        ctx.moveTo(this.coordX[0], this.coordY[0]);
-        for (i in this.height) {
+        for (i in this.startX) {
+            ctx.moveTo(this.startX[i], this.startY[i]);
             ctx.lineTo(this.endX[i], this.endY[i]);
         }
         ctx.lineWidth = 3;
@@ -19,13 +18,6 @@ let line = {
         ctx.closePath();
     },
 };
-
-line.height.push(300);
-line.coordX.push(250);
-line.coordY.push(100);
-line.endX.push(250);
-line.endY.push(400);
-line.draw();
 
 /* Clean the screen */
 function clear() {
@@ -35,15 +27,23 @@ function clear() {
 
 /* Get the mouse cursor */
 function findMouseCursor(event) {
-    document.getElementById("coordX").value = event.clientX;
-    document.getElementById("coordY").value = event.clientY;
+    document.getElementById("startX").value = event.clientX;
+    document.getElementById("startY").value = event.clientY;
 }
 
 /* Moves the element */
 function moveElem(event) {
-    for (i in line.height) {
-        if (event.clientX >= line.coordX[i] && event.clientX <= line.endX[i] + 2) {
-            if (event.clientY >= line.coordY[i] && event.clientY <= line.endY[i]) {
+    /* Gets the target line */
+    for (i in line.startX) {
+        console.log("entrei");
+        if (
+            (event.clientX >= line.startX[i] - 5 && event.clientX <= line.endX[i] + 7) ||
+            (event.clientX >= line.endX[i] - 7 && event.clientX <= line.startX[i] + 5)
+        ) {
+            if (
+                (event.clientY >= line.startY[i] - 5 && event.clientY <= line.endY[i] + 5) ||
+                (event.clientY >= line.endY[i] - 5 && event.clientY <= line.startY[i] + 5)
+            ) {
                 console.log(i);
                 tgt = i;
             }
@@ -51,50 +51,54 @@ function moveElem(event) {
     }
 
     /* Differences between the mouse click and line axis */
-    diffX = event.clientX - line.coordX[tgt];
-    diffY = event.clientY - line.coordY[tgt];
+    diffX = event.clientX - line.startX[tgt];
+    diffY = event.clientY - line.startY[tgt];
     diffEX = event.clientX - line.endX[tgt];
     diffEY = event.clientY - line.endY[tgt];
 
-    console.log((line.endX[tgt] - line.coordX[tgt]) / 2 - 5);
-    console.log((line.endX[tgt] - line.coordX[tgt]) / 2 + 7);
-    console.log(diffX);
-    console.log(line.height[tgt] / 2 - 5);
-    console.log(line.height[tgt] / 2 + 5);
-    console.log(diffY);
-
     if (event.button == 0) {
-        /* If it's half the line */
-        if (diffX >= (line.endX[tgt] - line.coordX[tgt]) / 2 - 5 && diffX <= (line.endX[tgt] - line.coordX[tgt]) / 2 + 7) {
-            console.log("Ola");
-            if (diffY >= line.height[tgt] / 2 - 5 && diffY <= line.height[tgt] / 2 + 5) {
-                canvas.addEventListener("mousemove", mover);
-            }
-        }
-
         /* If it's the top end of the line */
-        if (diffX >= -5 && diffX <= 5) {
-            if (diffY >= -5 && diffY <= 5) {
+        if (event.clientX >= line.startX[tgt] - 5 && event.clientX <= line.startX[tgt] + 7) {
+            if (event.clientY >= line.startY[tgt] - 5 && event.clientY <= line.startY[tgt] + 5) {
+                console.log("ponta superior");
                 canvas.addEventListener("mousemove", topTipMover);
             }
         }
 
         /* If it's the bottom end of the line */
-        if (diffEX >= -5 && diffEX <= 5) {
-            if (diffEY >= -5 && diffEY <= 5) {
+        if (event.clientX >= line.endX[tgt] - 5 && event.clientX <= line.endX[tgt] + 7) {
+            if (event.clientY >= line.endY[tgt] - 5 && event.clientY <= line.endY[tgt] + 5) {
+                console.log("ponta inferior");
                 canvas.addEventListener("mousemove", botTipMover);
+            }
+        }
+
+        /* If it's half the line */
+        if (tgt >= 0) {
+            if (
+                (event.clientY > line.startY[tgt] + 5 && event.clientY < line.endY[tgt] - 5) ||
+                (event.clientY > line.endY[tgt] + 5 && event.clientY < line.startY[tgt] - 5) ||
+                (event.clientX > line.startX[tgt] + 5 && event.clientX < line.endX[tgt] - 5) ||
+                (event.clientX > line.endX[tgt] + 5 && event.clientX < line.startX[tgt] - 5)
+            ) {
+                console.log("metade");
+                if (belongsToEquation(event, tgt, line.startX[tgt], line.startY[tgt], line.endX[tgt], line.endY[tgt])) {
+                    canvas.addEventListener("mousemove", mover);
+                }
             }
         }
     }
 
-    if (event.button == 2) {
-        line.height[tgt] = line.height[tgt] / 2;
-        line.endY[tgt] = line.endY[tgt] - line.height[tgt];
-        line.height.push(line.height[tgt]);
-        line.coordX.push(line.coordX[tgt]);
-        line.coordY.push(line.endY[tgt]);
-        line.endX.push(line.endX[tgt]);
-        line.endY.push(line.endY[tgt] + line.height[tgt]);
+    if (event.button == 2 && tgt >= 0) {
+        console.log("tgt inside: " + tgt);
+        begin = line.endX[tgt];
+        end = line.endY[tgt];
+        line.endX[tgt] = event.clientX;
+        line.endY[tgt] = event.clientY;
+        line.startX.push(event.clientX);
+        line.startY.push(event.clientY);
+        line.endX.push(begin);
+        line.endY.push(end);
         line.draw();
     }
 
@@ -106,24 +110,22 @@ function mover(event) {
     console.log("tgt: " + tgt);
     clear();
     if (tgt == 0) {
-        line.coordX[tgt] = event.clientX - diffX;
-        line.coordY[tgt] = event.clientY - diffY;
+        line.startX[tgt] = event.clientX - diffX;
+        line.startY[tgt] = event.clientY - diffY;
     } else {
         line.endX[tgt - 1] = event.clientX - diffX;
         line.endY[tgt - 1] = event.clientY - diffY;
     }
     line.endX[tgt] = event.clientX - diffEX;
     line.endY[tgt] = event.clientY - diffEY;
-    line.height[tgt] = line.endY[tgt] - line.coordY[tgt];
     line.draw();
 }
 
 /* The function that change the values of the element's top axis */
 function topTipMover(event) {
     clear();
-    line.coordX[tgt] = event.clientX - diffX;
-    line.coordY[tgt] = event.clientY - diffY;
-    line.height[tgt] = line.endY[tgt] - line.coordY[tgt];
+    line.startX[tgt] = event.clientX - diffX;
+    line.startY[tgt] = event.clientY - diffY;
     line.draw();
 }
 
@@ -132,7 +134,6 @@ function botTipMover(event) {
     clear();
     line.endX[tgt] = event.clientX - diffEX;
     line.endY[tgt] = event.clientY - diffEY;
-    line.height[tgt] = line.endY[tgt] - line.coordY[tgt];
     line.draw();
 }
 
@@ -143,3 +144,33 @@ function dropper(event) {
     canvas.removeEventListener("mousemove", topTipMover);
     canvas.removeEventListener("mousemove", botTipMover);
 }
+
+/* Verifies if mouse is over the line */
+function belongsToEquation(event, tgt, x1, y1, x2, y2) {
+    num = y2 - y1;
+    den = x2 - x1;
+    coefAng = num / den;
+    coefLin = y1 - coefAng * x1;
+
+    if (coefAng == Infinity) {
+        if (diffX >= -5 && diffX <= 7) {
+            return true;
+        }
+    }
+
+    console.log("coefLin: " + coefLin);
+    if (coefAng != Infinity && coefLin != Infinity) {
+        result = Math.trunc(coefAng * event.clientX + coefLin);
+        if (result >= event.clientY - 5 && result <= event.clientY + 5) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+line.startX.push(250);
+line.startY.push(100);
+line.endX.push(250);
+line.endY.push(400);
+line.draw();
