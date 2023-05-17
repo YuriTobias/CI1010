@@ -1,5 +1,6 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+
 let diffX0, diffY0, diffX1, diffY1;
 let tgt = [];
 
@@ -26,27 +27,14 @@ function clear() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-/* Get the mouse cursor */
-function findMouseCursor(event) {
-    document.getElementById("coordX").value = event.clientX;
-    document.getElementById("coordY").value = event.clientY;
-}
-
-/* Moves the element */
+/* Moves the element: can be both the line or some point */
 function moveElem(event) {
+    /* Left button */
     if (event.button == 0) {
         /* Checks if it's an end of the line
          If so, then moves the point or points belonging to that end */
         for (i = 0; i < line.points; i++) {
-            if (
-                distanceBwTwoPoints(
-                    event.clientX,
-                    event.clientY,
-                    line.coordX[i],
-                    line.coordY[i]
-                ) <= 5 &&
-                tgt == 0
-            ) {
+            if (distanceBwTwoPoints(event.clientX, event.clientY, line.coordX[i], line.coordY[i]) <= 5 && tgt == 0) {
                 tgt.push(i);
                 canvas.addEventListener("mousemove", pointMover);
                 canvas.addEventListener("mouseup", dropper);
@@ -56,65 +44,34 @@ function moveElem(event) {
         /* Checks if it's over some line */
         for (i = 0; i < line.points - 1; i++) {
             if (
-                pDistance(
-                    event.clientX,
-                    event.clientY,
-                    line.coordX[i],
-                    line.coordY[i],
-                    line.coordX[i + 1],
-                    line.coordY[i + 1]
-                ) <= 10 &&
-                distanceBwTwoPoints(
-                    event.clientX,
-                    event.clientY,
-                    line.coordX[i],
-                    line.coordY[i]
-                ) > 5 &&
-                distanceBwTwoPoints(
-                    event.clientX,
-                    event.clientY,
-                    line.coordX[i + 1],
-                    line.coordY[i + 1]
-                ) > 5 &&
+                distanceBwPointLine(event.clientX, event.clientY, line.coordX[i], line.coordY[i], line.coordX[i + 1], line.coordY[i + 1]) <=
+                    10 &&
+                distanceBwTwoPoints(event.clientX, event.clientY, line.coordX[i], line.coordY[i]) > 5 &&
+                distanceBwTwoPoints(event.clientX, event.clientY, line.coordX[i + 1], line.coordY[i + 1]) > 5 &&
                 tgt == 0
             ) {
                 tgt.push(i);
                 tgt.push(i + 1);
 
-                /* Differences between the mouse click and line axis */
+                /* Differences between the mouse click and line end axes */
                 diffX0 = event.clientX - line.coordX[tgt[0]];
                 diffY0 = event.clientY - line.coordY[tgt[0]];
                 diffX1 = event.clientX - line.coordX[tgt[1]];
                 diffY1 = event.clientY - line.coordY[tgt[1]];
-                canvas.addEventListener("mousemove", midMover);
+                canvas.addEventListener("mousemove", lineMover);
                 canvas.addEventListener("mouseup", dropper);
             }
         }
     }
 
+    /* Right button */
     if (event.button == 2) {
         for (i = 0; i < line.points - 1; i++) {
             if (
-                pDistance(
-                    event.clientX,
-                    event.clientY,
-                    line.coordX[i],
-                    line.coordY[i],
-                    line.coordX[i + 1],
-                    line.coordY[i + 1]
-                ) <= 10 &&
-                distanceBwTwoPoints(
-                    event.clientX,
-                    event.clientY,
-                    line.coordX[i],
-                    line.coordY[i]
-                ) > 5 &&
-                distanceBwTwoPoints(
-                    event.clientX,
-                    event.clientY,
-                    line.coordX[i + 1],
-                    line.coordY[i + 1]
-                ) > 5
+                distanceBwPointLine(event.clientX, event.clientY, line.coordX[i], line.coordY[i], line.coordX[i + 1], line.coordY[i + 1]) <=
+                    10 &&
+                distanceBwTwoPoints(event.clientX, event.clientY, line.coordX[i], line.coordY[i]) > 5 &&
+                distanceBwTwoPoints(event.clientX, event.clientY, line.coordX[i + 1], line.coordY[i + 1]) > 5
             ) {
                 line.coordX.splice(i + 1, 0, event.clientX);
                 line.coordY.splice(i + 1, 0, event.clientY);
@@ -127,8 +84,8 @@ function moveElem(event) {
     canvas.addEventListener("mouseup", dropper);
 }
 
-/* The function that change the values of the element's axis */
-function midMover(event) {
+/* The function that moves some line */
+function lineMover(event) {
     clear();
     if (
         tgt[0] === 0 &&
@@ -141,11 +98,7 @@ function midMover(event) {
         line.coordY[tgt[1]] = event.clientY - diffY1;
         line.coordX[line.coordX.length - 1] = line.coordX[tgt[0]];
         line.coordY[line.coordY.length - 1] = line.coordY[tgt[0]];
-    } else if (
-        tgt[1] === line.points - 1 &&
-        line.coordX[0] === line.coordX[tgt[1]] &&
-        line.coordY[0] === line.coordY[tgt[1]]
-    ) {
+    } else if (tgt[1] === line.points - 1 && line.coordX[0] === line.coordX[tgt[1]] && line.coordY[0] === line.coordY[tgt[1]]) {
         line.coordX[tgt[0]] = event.clientX - diffX0;
         line.coordY[tgt[0]] = event.clientY - diffY0;
         line.coordX[tgt[1]] = event.clientX - diffX1;
@@ -161,7 +114,7 @@ function midMover(event) {
     line.draw();
 }
 
-/* The function that change the values of the element's top axis */
+/* The function that changes the values of an element tip */
 function pointMover(event) {
     clear();
     if (tgt.length == 2) {
@@ -180,7 +133,7 @@ function pointMover(event) {
 /* Function that end the movement */
 function dropper(event) {
     canvas.removeEventListener("mouseup", dropper);
-    canvas.removeEventListener("mousemove", midMover);
+    canvas.removeEventListener("mousemove", lineMover);
     canvas.removeEventListener("mousemove", pointMover);
     for (i = 0; i < tgt.length; i++) {
         tgt.pop();
@@ -188,7 +141,8 @@ function dropper(event) {
     tgt.pop();
 }
 
-function pDistance(x, y, x1, y1, x2, y2) {
+/* Outside function used to calculate the distance between a point and a line */
+function distanceBwPointLine(x, y, x1, y1, x2, y2) {
     var A = x - x1;
     var B = y - y1;
     var C = x2 - x1;
@@ -219,10 +173,12 @@ function pDistance(x, y, x1, y1, x2, y2) {
     return Math.sqrt(dx * dx + dy * dy);
 }
 
+/* Function used to calculate the distance between two points */
 function distanceBwTwoPoints(x, y, x1, y1) {
     return Math.sqrt(Math.pow(x1 - x, 2) + Math.pow(y1 - y, 2));
 }
 
+/* Function that draws a single line */
 function drawLine() {
     let x = [250, 250];
     let y = [100, 400];
@@ -234,6 +190,7 @@ function drawLine() {
     line.draw();
 }
 
+/* Function that draws a single triangle */
 function drawTriangle() {
     let x = [250, 150, 350, 250];
     let y = [100, 300, 300, 100];
@@ -245,6 +202,7 @@ function drawTriangle() {
     line.draw();
 }
 
+/* Function that draws a single square */
 function drawSquare() {
     let x = [100, 100, 400, 400, 100];
     let y = [100, 400, 400, 100, 100];
@@ -256,6 +214,7 @@ function drawSquare() {
     line.draw();
 }
 
+/* Function that draws a single pentagon */
 function drawPentagon() {
     let x = [250, 100, 175, 325, 400, 250];
     let y = [100, 225, 400, 400, 225, 100];
@@ -267,6 +226,7 @@ function drawPentagon() {
     line.draw();
 }
 
+/* Function that draws a single hexagon */
 function drawHexagon() {
     let x = [150, 350, 400, 350, 150, 100, 150];
     let y = [100, 100, 250, 400, 400, 250, 100];
@@ -278,6 +238,7 @@ function drawHexagon() {
     line.draw();
 }
 
+/* Function that draws a single heptagon */
 function drawHeptagon() {
     let x = [250, 400, 430, 320, 180, 70, 100, 250];
     let y = [100, 180, 310, 400, 400, 310, 180, 100];
@@ -289,6 +250,7 @@ function drawHeptagon() {
     line.draw();
 }
 
+/* Function that draws a single octogon */
 function drawOctogon() {
     let x = [390, 323, 250, 178, 110, 178, 250, 323, 390];
     let y = [250, 298, 327, 298, 250, 203, 174, 203, 250];
@@ -300,6 +262,7 @@ function drawOctogon() {
     line.draw();
 }
 
+/* Function that checks the input value to show the correct draw */
 function checkInput(event) {
     event.preventDefault();
     let answer = document.getElementById("inputValue");
