@@ -1,61 +1,91 @@
 body {
-   display: flex;
-   flex-direction: column;
-   box-sizing: border-box;
-   font-family: "Poppins", sans-serif;
-   margin: 0px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    margin: 0px;
 }
 
 .visualizeitor-header {
-   display: flex;
-   justify-content: center;
-   width: 100%;
-   color: white;
-   background-color: lightseagreen;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: #f4f4f2;
+    background-color: #191013;
 }
 
 .visualizeitor-header h1 {
-   text-align: center;
-   margin: 0px;
-   padding: 20px;
+    text-align: center;
+    margin: 0px;
+    padding: 20px;
 }
 
 .visualizeitor-main {
-   width: 100%;
-   height: 85vh;
-   background-color: lightgrey;
+    width: 100%;
+    height: 85vh;
+    background-color: #243a69;
 }
 
 .visualizeitor-searchbar {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   padding: 20px;
-   padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 50px;
+}
+
+.visualizeitor-searchbar-form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .visualizeitor-searchbar-input {
-   width: 50%;
-   padding: 20px;
-   border: 2px solid lightseagreen;
-   border-radius: 30px;
+    width: 25%;
+    padding: 16px;
+    border: 0px;
+    outline: none;
+}
+
+.visualizeitor-searchbar-button {
+    width: 3%;
+    border: 0px;
+    cursor: pointer;
+    color: #f4f4f2;
+    background-color: #191013;
+}
+
+.visualizeitor-searchbar-button:hover {
+    background-color: #191013a2;
 }
 
 .visualizeitor-searchbar-input::placeholder {
-   text-align: center;
-   font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
 }
 
 .visualizeitor-table {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0rem 4rem;
+}
+
+.visualizeitor-table table,
+tr,
+th,
+td {
+    border: 1px solid #5b88a5;
+    border-collapse: collapse;
+}
+
+.visualizeitor-table table {
+    width: 100%;
 }
 
 .visualizeitor-footer {
-   position: absolute;
-   bottom: 0;
-   width: 100%;
-   height: 4rem;
-   background-color: lightseagreen;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 4rem;
+    background-color: #191013;
 }
