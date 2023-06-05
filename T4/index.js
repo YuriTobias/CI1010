@@ -17,6 +17,7 @@ function loadXml() {
 }
 
 function xmlHandler(xml, grr) {
+    clear();
     var xmlDoc = xml.responseXML;
     // console.log(xmlDoc);
     let alunos = xmlDoc.getElementsByTagName("ALUNO");
@@ -25,20 +26,20 @@ function xmlHandler(xml, grr) {
             student.push(alunos[i]);
         }
     }
-    console.log(student);
+    // console.log(student);
     updateTable();
-    clear();
 }
 
 function updateTable() {
-    //falta limpar a tabela antes de criar uma nova
+    // Falta limpar a tabela antes de criar uma nova
     var subject;
     var sigla;
     for (let i = 0; i < student.length; i++) {
         sigla = student[i].childNodes[53].firstChild.data;
-        console.log(sigla);
+        // console.log(sigla);
         subject = student[i].childNodes[29].firstChild.data;
-        console.log(subject);
+        // console.log(subject);
+        // Falta adicionar uma nova tabela com todas as matérias optativas
         if (document.getElementById(subject) != null) {
             switch (sigla) {
                 case "Aprovado":
@@ -85,15 +86,15 @@ function updateTable() {
 
 $(document).ready(function () {
     $("td").mousedown(function (event) {
-        console.log($(this).attr("id"));
-        console.log(event.which);
+        // console.log($(this).attr("id"));
+        // console.log(event.which);
         switch (event.which) {
             case 1:
-                //window.alert("esquerdo");
+                leftClickHandler($(this).attr("id"));
                 break;
 
             case 3:
-                //window.alert("direito");
+                rightClickHandler($(this).attr("id"));
                 break;
 
             default:
@@ -101,6 +102,65 @@ $(document).ready(function () {
         }
     });
 });
+
+// Falta tratar as matérias que ainda não foram cursadas
+function leftClickHandler(subject) {
+    let code, name, year, semester, grade, frequency, answer;
+    for (let i = 0; i < student.length; i++) {
+        if (student[i].childNodes[29].firstChild.data == subject) {
+            code = student[i].childNodes[29].firstChild.data;
+            name = student[i].childNodes[31].firstChild.data;
+            year = student[i].childNodes[19].firstChild.data;
+            semester = student[i].childNodes[25].firstChild.data;
+            grade = student[i].childNodes[21].firstChild.data;
+            frequency = parseFloat(student[i].childNodes[47].firstChild.data.replace(",", ".")).toFixed(2);
+        }
+    }
+    answer =
+        "Dados da última vez em que a disciplina foi cursada:\n\n" +
+        "Código: " +
+        code +
+        "\nNome: " +
+        name +
+        "\nAno: " +
+        year +
+        "\nSemestre: " +
+        semester +
+        "\nMédia Final: " +
+        grade +
+        "\nFrequência: " +
+        frequency;
+    window.alert(answer);
+}
+
+function rightClickHandler(subject) {
+    let code,
+        name,
+        year = [],
+        semester = [],
+        grade = [],
+        frequency = [],
+        answer,
+        aux;
+    for (let i = 0; i < student.length; i++) {
+        if (student[i].childNodes[29].firstChild.data == subject) {
+            code = student[i].childNodes[29].firstChild.data;
+            name = student[i].childNodes[31].firstChild.data;
+            year.push(student[i].childNodes[19].firstChild.data);
+            semester.push(student[i].childNodes[25].firstChild.data);
+            grade.push(student[i].childNodes[21].firstChild.data);
+            frequency.push(parseFloat(student[i].childNodes[47].firstChild.data.replace(",", ".")).toFixed(2));
+        }
+    }
+    aux = "Histórico do aluno na disciplina:\n\n" + "Código: " + code + "\nNome: " + name;
+    for (let i = 0; i < frequency.length; i++) {
+        // console.log("Entrei");
+        // console.log(aux);
+        aux = aux.concat("\nAno/Semestre: " + year[i] + "/" + semester[i] + "\nMédia Final: " + grade[i] + "\nFrequência: " + frequency[i]);
+    }
+    answer = aux;
+    window.alert(answer);
+}
 
 function clear() {
     student = [];
