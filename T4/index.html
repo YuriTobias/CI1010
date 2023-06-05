@@ -15,6 +15,9 @@
             href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap"
             rel="stylesheet"
         />
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script type="text/javascript" src="index.js"></script>
     </head>
     <body>
         <header class="visualizeitor-header">
@@ -22,7 +25,7 @@
         </header>
         <main class="visualizeitor-main">
             <div class="visualizeitor-searchbar">
-                <form class="visualizeitor-searchbar-form">
+                <form class="visualizeitor-searchbar-form" id="form">
                     <input
                         type="text"
                         id="ra-input"
@@ -30,7 +33,7 @@
                         placeholder="Enter the user's academic record to view their grade"
                         class="visualizeitor-searchbar-input"
                     />
-                    <button type="submit" class="visualizeitor-searchbar-button">
+                    <button id="btn1" type="submit" class="visualizeitor-searchbar-button" onclick="loadXml()">
                         <i class="fa fa-search"></i>
                     </button>
                 </form>
@@ -49,59 +52,57 @@
                         <th>8°</th>
                     </tr>
                     <tr>
-                        <td>CI068</td>
-                        <td>CI210</td>
-                        <td>CI212</td>
-                        <td>CI215</td>
-                        <td>CI162</td>
-                        <td>CI163</td>
-                        <td>CI221</td>
-                        <td>OPT</td>
+                        <td id="CI068">CI068</td>
+                        <td id="CI210">CI210</td>
+                        <td id="CI212">CI212</td>
+                        <td id="CI215">CI215</td>
+                        <td id="CI162">CI162</td>
+                        <td id="CI163">CI163</td>
+                        <td id="CI221">CI221</td>
+                        <td id="OPT1">OPT</td>
                     </tr>
                     <tr>
-                        <td>CI055</td>
-                        <td>CI056</td>
-                        <td>CI057</td>
-                        <td>CI062</td>
-                        <td>CI065</td>
-                        <td>CI165</td>
-                        <td>CI211</td>
-                        <td>OPT</td>
+                        <td id="CI055">CI055</td>
+                        <td id="CI056">CI056</td>
+                        <td id="CI057">CI057</td>
+                        <td id="CI062">CI062</td>
+                        <td id="CI065">CI065</td>
+                        <td id="CI165">CI165</td>
+                        <td id="CI211">CI211</td>
+                        <td id="OPT2">OPT</td>
                     </tr>
                     <tr>
-                        <td>CM046</td>
-                        <td>CI067</td>
-                        <td>CI064</td>
-                        <td>CE003</td>
-                        <td>CI059</td>
-                        <td>CI209</td>
-                        <td>OPT</td>
-                        <td>OPT</td>
+                        <td id="CM046">CM046</td>
+                        <td id="CI067">CI067</td>
+                        <td id="CI064">CI064</td>
+                        <td id="CE003">CE003</td>
+                        <td id="CI059">CI059</td>
+                        <td id="CI209">CI209</td>
+                        <td id="OPT3">OPT</td>
+                        <td id="OPT4">OPT</td>
                     </tr>
                     <tr>
-                        <td>CM045</td>
-                        <td>CM005</td>
-                        <td>CI237</td>
-                        <td>CI058</td>
-                        <td>CI061</td>
-                        <td>CI218</td>
-                        <td>OPT</td>
-                        <td>OPT</td>
+                        <td id="CM045">CM045</td>
+                        <td id="CM005">CM005</td>
+                        <td id="CI237">CI237</td>
+                        <td id="CI058">CI058</td>
+                        <td id="CI061">CI061</td>
+                        <td id="CI218">CI218</td>
+                        <td id="OPT5">OPT</td>
+                        <td id="OPT6">OPT</td>
                     </tr>
                     <tr>
-                        <td>CM201</td>
-                        <td>CM201</td>
-                        <td>CI166</td>
-                        <td>CI164</td>
-                        <td>SA214</td>
-                        <td>CI220</td>
-                        <td>TG I</td>
-                        <td>TG II</td>
+                        <td id="CM201">CM201</td>
+                        <td id="CM202">CM202</td>
+                        <td id="CI166">CI166</td>
+                        <td id="CI164">CI164</td>
+                        <td id="SA214">SA214</td>
+                        <td id="CI220">CI220</td>
+                        <td id="TGI">TG I</td>
+                        <td id="TG II">TG II</td>
                     </tr>
                 </table>
             </div>
         </main>
-        <footer class="visualizeitor-footer"></footer>
-        <script type="text/javascript" src="index.js"></script>
     </body>
 </html>
