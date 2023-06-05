@@ -1,4 +1,11 @@
 let student = [];
+let subjects = [
+    ["CI068", "CI210", "CI212", "CI215", "CI162", "CI163", "CI221", "OPT1"],
+    ["CI055", "CI056", "CI057", "CI062", "CI065", "CI165", "CI211", "OPT2"],
+    ["CM046", "CI067", "CI064", "CE003", "CI059", "CI209", "OPT3", "OPT4"],
+    ["CM045", "CM005", "CI237", "CI058", "CI061", "CI218", "OPT5", "OPT6"],
+    ["CM201", "CM202", "CI166", "CI164", "SA214", "CI220", "CI233", "CI234"],
+];
 var xhttp;
 
 function loadXml() {
@@ -19,26 +26,21 @@ function loadXml() {
 function xmlHandler(xml, grr) {
     clear();
     var xmlDoc = xml.responseXML;
-    // console.log(xmlDoc);
     let alunos = xmlDoc.getElementsByTagName("ALUNO");
     for (let i = 0; i < alunos.length; i++) {
         if (alunos[i].childNodes[3].firstChild.data == grr) {
             student.push(alunos[i]);
         }
     }
-    // console.log(student);
     updateTable();
 }
 
 function updateTable() {
-    // Falta limpar a tabela antes de criar uma nova
     var subject;
     var sigla;
     for (let i = 0; i < student.length; i++) {
         sigla = student[i].childNodes[53].firstChild.data;
-        // console.log(sigla);
         subject = student[i].childNodes[29].firstChild.data;
-        // console.log(subject);
         // Falta adicionar uma nova tabela com todas as matérias optativas
         if (document.getElementById(subject) != null) {
             switch (sigla) {
@@ -86,8 +88,6 @@ function updateTable() {
 
 $(document).ready(function () {
     $("td").mousedown(function (event) {
-        // console.log($(this).attr("id"));
-        // console.log(event.which);
         switch (event.which) {
             case 1:
                 leftClickHandler($(this).attr("id"));
@@ -103,9 +103,10 @@ $(document).ready(function () {
     });
 });
 
-// Falta tratar as matérias que ainda não foram cursadas
+// Falta tratar as matérias optativas + eletivas
 function leftClickHandler(subject) {
     let code, name, year, semester, grade, frequency, answer;
+    let present = false;
     for (let i = 0; i < student.length; i++) {
         if (student[i].childNodes[29].firstChild.data == subject) {
             code = student[i].childNodes[29].firstChild.data;
@@ -113,23 +114,30 @@ function leftClickHandler(subject) {
             year = student[i].childNodes[19].firstChild.data;
             semester = student[i].childNodes[25].firstChild.data;
             grade = student[i].childNodes[21].firstChild.data;
-            frequency = parseFloat(student[i].childNodes[47].firstChild.data.replace(",", ".")).toFixed(2);
+            frequency = parseFloat(
+                student[i].childNodes[47].firstChild.data.replace(",", ".")
+            ).toFixed(2);
+            present = true;
         }
     }
-    answer =
-        "Dados da última vez em que a disciplina foi cursada:\n\n" +
-        "Código: " +
-        code +
-        "\nNome: " +
-        name +
-        "\nAno: " +
-        year +
-        "\nSemestre: " +
-        semester +
-        "\nMédia Final: " +
-        grade +
-        "\nFrequência: " +
-        frequency;
+    if (present) {
+        answer =
+            "Dados da última vez em que a disciplina foi cursada:\n\n" +
+            "Código: " +
+            code +
+            "\nNome: " +
+            name +
+            "\nAno: " +
+            year +
+            "\nSemestre: " +
+            semester +
+            "\nMédia Final: " +
+            grade +
+            "\nFrequência: " +
+            frequency;
+    } else {
+        answer = "A disciplina " + subject + " ainda não foi cursada!";
+    }
     window.alert(answer);
 }
 
@@ -142,6 +150,7 @@ function rightClickHandler(subject) {
         frequency = [],
         answer,
         aux;
+    let present = false;
     for (let i = 0; i < student.length; i++) {
         if (student[i].childNodes[29].firstChild.data == subject) {
             code = student[i].childNodes[29].firstChild.data;
@@ -149,19 +158,40 @@ function rightClickHandler(subject) {
             year.push(student[i].childNodes[19].firstChild.data);
             semester.push(student[i].childNodes[25].firstChild.data);
             grade.push(student[i].childNodes[21].firstChild.data);
-            frequency.push(parseFloat(student[i].childNodes[47].firstChild.data.replace(",", ".")).toFixed(2));
+            frequency.push(
+                parseFloat(student[i].childNodes[47].firstChild.data.replace(",", ".")).toFixed(2)
+            );
+            present = true;
         }
     }
-    aux = "Histórico do aluno na disciplina:\n\n" + "Código: " + code + "\nNome: " + name;
-    for (let i = 0; i < frequency.length; i++) {
-        // console.log("Entrei");
-        // console.log(aux);
-        aux = aux.concat("\nAno/Semestre: " + year[i] + "/" + semester[i] + "\nMédia Final: " + grade[i] + "\nFrequência: " + frequency[i]);
+    if (present) {
+        aux = "Histórico do aluno na disciplina:\n\n" + "Código: " + code + "\nNome: " + name;
+        for (let i = 0; i < frequency.length; i++) {
+            aux = aux.concat(
+                "\nAno/Semestre: " +
+                    year[i] +
+                    "/" +
+                    semester[i] +
+                    "\nMédia Final: " +
+                    grade[i] +
+                    "\nFrequência: " +
+                    frequency[i]
+            );
+        }
+        answer = aux;
+    } else {
+        answer = "A disciplina " + subject + " ainda não foi cursada!";
     }
-    answer = aux;
+
     window.alert(answer);
 }
 
 function clear() {
     student = [];
+    for (let i = 0; i < subjects.length; i++) {
+        for (let j = 0; j < subjects[i].length; j++) {
+            document.getElementById(subjects[i][j]).style.backgroundColor = "#f4f4f2";
+            document.getElementById(subjects[i][j]).style.color = "black";
+        }
+    }
 }
