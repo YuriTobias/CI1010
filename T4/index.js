@@ -41,7 +41,6 @@ function updateTable() {
     for (let i = 0; i < student.length; i++) {
         sigla = student[i].childNodes[53].firstChild.data;
         subject = student[i].childNodes[29].firstChild.data;
-        // Falta adicionar uma nova tabela com todas as matérias optativas
         if (document.getElementById(subject) != null) {
             switch (sigla) {
                 case "Aprovado":
@@ -79,6 +78,11 @@ function updateTable() {
                     document.getElementById(subject).style.color = "black";
                     break;
 
+                case "Tr. Total":
+                    document.getElementById(subject).style.backgroundColor = "white";
+                    document.getElementById(subject).style.color = "black";
+                    break;
+
                 default:
                     break;
             }
@@ -88,69 +92,21 @@ function updateTable() {
 
 $(document).ready(function () {
     $("td").mousedown(function (event) {
-        switch (event.which) {
-            case 1:
-                leftClickHandler($(this).attr("id"));
-                break;
-
-            case 3:
-                rightClickHandler($(this).attr("id"));
-                break;
-
-            default:
-                break;
-        }
+        clickHandler($(this).attr("id"), event.which);
     });
 });
 
-// Falta tratar as matérias optativas + eletivas
-function leftClickHandler(subject) {
-    let code, name, year, semester, grade, frequency, answer;
-    let present = false;
-    for (let i = 0; i < student.length; i++) {
-        if (student[i].childNodes[29].firstChild.data == subject) {
-            code = student[i].childNodes[29].firstChild.data;
-            name = student[i].childNodes[31].firstChild.data;
-            year = student[i].childNodes[19].firstChild.data;
-            semester = student[i].childNodes[25].firstChild.data;
-            grade = student[i].childNodes[21].firstChild.data;
-            frequency = parseFloat(
-                student[i].childNodes[47].firstChild.data.replace(",", ".")
-            ).toFixed(2);
-            present = true;
-        }
-    }
-    if (present) {
-        answer =
-            "Dados da última vez em que a disciplina foi cursada:\n\n" +
-            "Código: " +
-            code +
-            "\nNome: " +
-            name +
-            "\nAno: " +
-            year +
-            "\nSemestre: " +
-            semester +
-            "\nMédia Final: " +
-            grade +
-            "\nFrequência: " +
-            frequency;
-    } else {
-        answer = "A disciplina " + subject + " ainda não foi cursada!";
-    }
-    window.alert(answer);
-}
-
-function rightClickHandler(subject) {
+function clickHandler(subject, mouseSide) {
     let code,
         name,
-        year = [],
+        answer,
+        aux,
+        present = false;
+    let year = [],
         semester = [],
         grade = [],
-        frequency = [],
-        answer,
-        aux;
-    let present = false;
+        frequency = [];
+
     for (let i = 0; i < student.length; i++) {
         if (student[i].childNodes[29].firstChild.data == subject) {
             code = student[i].childNodes[29].firstChild.data;
@@ -158,27 +114,33 @@ function rightClickHandler(subject) {
             year.push(student[i].childNodes[19].firstChild.data);
             semester.push(student[i].childNodes[25].firstChild.data);
             grade.push(student[i].childNodes[21].firstChild.data);
-            frequency.push(
-                parseFloat(student[i].childNodes[47].firstChild.data.replace(",", ".")).toFixed(2)
-            );
+            frequency.push(parseFloat(student[i].childNodes[47].firstChild.data.replace(",", ".")).toFixed(2));
             present = true;
         }
     }
-    if (present) {
+    if (present && mouseSide == 3) {
         aux = "Histórico do aluno na disciplina:\n\n" + "Código: " + code + "\nNome: " + name;
         for (let i = 0; i < frequency.length; i++) {
             aux = aux.concat(
-                "\nAno/Semestre: " +
-                    year[i] +
-                    "/" +
-                    semester[i] +
-                    "\nMédia Final: " +
-                    grade[i] +
-                    "\nFrequência: " +
-                    frequency[i]
+                "\n\nAno/Semestre: " + year[i] + "/" + semester[i] + "\nMédia Final: " + grade[i] + "\nFrequência: " + frequency[i]
             );
         }
         answer = aux;
+    } else if (present && mouseSide == 1) {
+        answer =
+            "Dados da última vez em que a disciplina foi cursada:\n\n" +
+            "Código: " +
+            code +
+            "\nNome: " +
+            name +
+            "\nAno: " +
+            year[year.length - 1] +
+            "\nSemestre: " +
+            semester[year.length - 1] +
+            "\nMédia Final: " +
+            grade[year.length - 1] +
+            "\nFrequência: " +
+            frequency[year.length - 1];
     } else {
         answer = "A disciplina " + subject + " ainda não foi cursada!";
     }
