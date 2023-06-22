@@ -8,4 +8,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "players#index"
+
+  devise_scope :user do  
+    get '/users/sign_out' => 'devise/sessions#destroy'     
+  end
 end
