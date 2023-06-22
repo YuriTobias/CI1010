@@ -1,0 +1,12 @@
+<script>
+    function topFunction() {
+        document.body.scrollTop = 0; 
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+
+<% if user_signed_in? %>
+    <div class="d-flex justify-content-end w-100 pe-5 pb-5">
+        <button type="button" class="btn bg-c2 text-black" id="backToTopBtn" onclick="topFunction()">Back To Top</button>
+    </div>
+<% end %>
