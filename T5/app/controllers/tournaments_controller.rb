@@ -1,4 +1,5 @@
 class TournamentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_tournament, only: %i[ show edit update destroy ]
 
   # GET /tournaments or /tournaments.json

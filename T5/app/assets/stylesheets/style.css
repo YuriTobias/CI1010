@@ -30,6 +30,14 @@ body {
     background-color: #0d6dfdae;
 }
 
+.btn-dark:hover {
+    background-color: #212529c3;
+}
+
+.btn-light:hover {
+    background-color: #f8f9fac9;
+}
+
 .bg-c1 {
     background-color: #213435;
 }
