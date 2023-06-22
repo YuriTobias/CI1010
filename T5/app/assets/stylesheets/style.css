@@ -22,6 +22,14 @@ body {
     background-color: #46685bb3;
 }
 
+.btn-danger:hover {
+    background-color: #dc3546b5;
+}
+
+.btn-primary:hover {
+    background-color: #0d6dfdae;
+}
+
 .bg-c1 {
     background-color: #213435;
 }

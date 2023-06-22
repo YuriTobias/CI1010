@@ -6,7 +6,7 @@
     <button type="button" class="btn btn-lg bg-c2 rounded-4 align-self-center mb-3">
       <a class="text-black text-decoration-none px-4" href="/tournaments/<%= @tournament.id %>/edit">Edit</a>
     </button>
-    <%= button_to "Destroy this tournament", @tournament, method: :delete %>
+    <%= button_to "Destroy this tournament", @tournament, method: :delete, class: 'btn btn-danger rounded-3' %>
   </div>
   <button type="button" class="btn btn-lg bg-c2 rounded-4 align-self-center mb-5">
     <a class="text-black text-decoration-none px-4" href="/tournaments">Back to Tournaments</a>
