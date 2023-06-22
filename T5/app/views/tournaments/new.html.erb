@@ -1,9 +1,10 @@
-<h1>New tournament</h1>
+<h1 class="text-center fw-bold mb-4">New tournament</h1>
 
-<%= render "form", tournament: @tournament %>
-
-<br>
-
-<div>
-  <%= link_to "Back to tournaments", tournaments_path %>
+<div class="d-flex flex-column align-items-center w-100">
+  <div class="d-flex flex-column align-items-center rounded-4 bg-c4 w-50 py-3 mb-2">
+    <%= render "form", tournament: @tournament %>
+  </div>
+  <button type="button" class="btn btn-lg bg-c2 rounded-4 align-self-center mb-5">
+    <a class="text-black text-decoration-none px-4" href="/tournaments">Back to Tournaments</a>
+  </button>
 </div>

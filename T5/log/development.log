@@ -8171,3 +8171,548 @@ Processing by PlayersController#index as HTML
 Completed 200 OK in 18ms (Views: 14.4ms | ActiveRecord: 0.2ms | Allocations: 5504)
 
 
+Started GET "/players/new" for ::1 at 2023-06-22 03:58:22 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 8.7ms | Allocations: 3428)
+  Rendered players/new.html.erb within layouts/application (Duration: 11.5ms | Allocations: 4037)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 149)
+  Rendered layout layouts/application.html.erb (Duration: 104.6ms | Allocations: 30744)
+Completed 200 OK in 164ms (Views: 108.6ms | ActiveRecord: 0.5ms | Allocations: 66165)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:58:24 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/new" for ::1 at 2023-06-22 03:59:28 -0300
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 4.6ms | Allocations: 1941)
+  Rendered players/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2207)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 5925)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.0ms | Allocations: 7032)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:59:30 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players" for ::1 at 2023-06-22 03:59:35 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.6ms | Allocations: 288)
+  Rendered players/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 4588)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 7788)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.3ms | Allocations: 8247)
+
+
+Started GET "/players/new" for ::1 at 2023-06-22 03:59:36 -0300
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 6.1ms | Allocations: 1426)
+  Rendered players/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1482)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 4626)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 4965)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:59:37 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 822)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 3979)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.7ms | Allocations: 4314)
+
+
+Started GET "/players" for ::1 at 2023-06-22 04:00:17 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.9ms | Allocations: 269)
+  Rendered players/index.html.erb within layouts/application (Duration: 39.7ms | Allocations: 1412)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 151)
+  Rendered layout layouts/application.html.erb (Duration: 133.7ms | Allocations: 5105)
+Completed 200 OK in 164ms (Views: 146.8ms | ActiveRecord: 1.1ms | Allocations: 6217)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 04:00:18 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 1.5ms | Allocations: 216)
+  Rendered teams/index.html.erb within layouts/application (Duration: 39.9ms | Allocations: 14953)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 52.1ms | Allocations: 18213)
+Completed 200 OK in 64ms (Views: 53.4ms | ActiveRecord: 1.6ms | Allocations: 20651)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 04:00:19 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/teams/new" for ::1 at 2023-06-22 04:00:19 -0300
+Processing by TeamsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 6.3ms | Allocations: 1473)
+  Rendered teams/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1734)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 4892)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.0ms | Allocations: 5284)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 04:00:21 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 829)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 3985)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.1ms | Allocations: 4312)
+
+
+Started GET "/teams/new" for ::1 at 2023-06-22 04:00:21 -0300
+Processing by TeamsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 2.6ms | Allocations: 976)
+  Rendered teams/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1032)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 4175)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 4504)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 04:00:22 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 816)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3972)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.1ms | Allocations: 4299)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 04:01:13 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.5ms | Allocations: 205)
+  Rendered teams/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1352)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 5041)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.1ms | Allocations: 6152)
+
+
+Started GET "/teams/new" for ::1 at 2023-06-22 04:01:14 -0300
+Processing by TeamsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 2.7ms | Allocations: 1387)
+  Rendered teams/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1649)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 4792)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 5175)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 04:01:15 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players" for ::1 at 2023-06-22 04:01:16 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.7ms | Allocations: 269)
+  Rendered players/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1407)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 4622)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.1ms | Allocations: 5489)
+
+
+Started GET "/players/new" for ::1 at 2023-06-22 04:01:17 -0300
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 5.5ms | Allocations: 1932)
+  Rendered players/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2194)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 5337)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 5722)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 04:01:18 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.3ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 1.5ms | Allocations: 252)
+  Rendered documents/index.html.erb within layouts/application (Duration: 22.2ms | Allocations: 15720)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 18937)
+Completed 200 OK in 36ms (Views: 30.7ms | ActiveRecord: 1.2ms | Allocations: 21418)
+
+
+Started GET "/documents/new" for ::1 at 2023-06-22 04:01:18 -0300
+Processing by DocumentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/new.html.erb within layouts/application
+  Rendered documents/_form.html.erb (Duration: 3.2ms | Allocations: 1768)
+  Rendered documents/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2032)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 5175)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 5568)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 04:01:19 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.4ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 824)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 3980)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.4ms | Allocations: 4307)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 04:01:20 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.4ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.8ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 820)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 3976)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.4ms | Allocations: 4303)
+
+
+Started GET "/documents/new" for ::1 at 2023-06-22 04:01:21 -0300
+Processing by DocumentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/new.html.erb within layouts/application
+  Rendered documents/_form.html.erb (Duration: 6.8ms | Allocations: 1181)
+  Rendered documents/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1237)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 4380)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.0ms | Allocations: 4710)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 04:01:22 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 820)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3976)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.1ms | Allocations: 4303)
+
+
+Started GET "/documents/new" for ::1 at 2023-06-22 04:01:23 -0300
+Processing by DocumentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/new.html.erb within layouts/application
+  Rendered documents/_form.html.erb (Duration: 1.5ms | Allocations: 1197)
+  Rendered documents/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1253)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 4396)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 4726)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 04:01:24 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 818)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 3974)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.1ms | Allocations: 4301)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 04:01:25 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 833)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3989)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.1ms | Allocations: 4318)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 04:01:27 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.3ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 1.1ms | Allocations: 251)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 34.4ms | Allocations: 15579)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 47.3ms | Allocations: 18795)
+Completed 200 OK in 70ms (Views: 49.2ms | ActiveRecord: 1.3ms | Allocations: 28189)
+
+
+Started GET "/tournaments/new" for ::1 at 2023-06-22 04:01:28 -0300
+Processing by TournamentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/new.html.erb within layouts/application
+  Rendered tournaments/_form.html.erb (Duration: 6.3ms | Allocations: 1762)
+  Rendered tournaments/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 2071)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 36.3ms | Allocations: 5216)
+Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.0ms | Allocations: 5610)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 04:01:29 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 943)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 4112)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.1ms | Allocations: 4439)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 04:02:10 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.2ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.8ms | Allocations: 237)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 11.3ms | Allocations: 1508)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 26.3ms | Allocations: 5197)
+Completed 200 OK in 31ms (Views: 29.4ms | ActiveRecord: 0.2ms | Allocations: 6311)
+
+
+Started GET "/tournaments/new" for ::1 at 2023-06-22 04:02:11 -0300
+Processing by TournamentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/new.html.erb within layouts/application
+  Rendered tournaments/_form.html.erb (Duration: 7.0ms | Allocations: 1657)
+  Rendered tournaments/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 1920)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 5079)
+Completed 200 OK in 24ms (Views: 21.6ms | ActiveRecord: 0.0ms | Allocations: 5464)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 04:02:12 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/tournaments" for ::1 at 2023-06-22 04:02:12 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 932)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4131)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.1ms | Allocations: 4459)
+
+
+Started GET "/tournaments/new" for ::1 at 2023-06-22 04:02:13 -0300
+Processing by TournamentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/new.html.erb within layouts/application
+  Rendered tournaments/_form.html.erb (Duration: 2.6ms | Allocations: 1198)
+  Rendered tournaments/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1254)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 4397)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4727)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 04:02:14 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 949)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 4105)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 4432)
+
+
+Started GET "/players" for ::1 at 2023-06-22 04:02:16 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 1.2ms | Allocations: 269)
+  Rendered players/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1402)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 4617)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.1ms | Allocations: 5483)
+
+
+Started GET "/players/new" for ::1 at 2023-06-22 04:02:17 -0300
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 3.6ms | Allocations: 1928)
+  Rendered players/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2189)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 5332)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.0ms | Allocations: 5717)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 04:02:18 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.9ms | Allocations: 237)
+  Rendered documents/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1380)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 4595)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.2ms | Allocations: 5461)
+
+
+Started GET "/documents/new" for ::1 at 2023-06-22 04:02:18 -0300
+Processing by DocumentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/new.html.erb within layouts/application
+  Rendered documents/_form.html.erb (Duration: 5.5ms | Allocations: 1647)
+  Rendered documents/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1908)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 5051)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 5435)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 04:02:19 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 1.8ms | Allocations: 205)
+  Rendered teams/index.html.erb within layouts/application (Duration: 10.1ms | Allocations: 1352)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 4567)
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 0.3ms | Allocations: 5433)
+
+
+Started GET "/teams/new" for ::1 at 2023-06-22 04:02:21 -0300
+Processing by TeamsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 6.2ms | Allocations: 1381)
+  Rendered teams/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1642)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 4785)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 5168)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 04:02:22 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 943)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 4099)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.1ms | Allocations: 4427)
+
+
+Started GET "/tournaments/new" for ::1 at 2023-06-22 04:02:24 -0300
+Processing by TournamentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/new.html.erb within layouts/application
+  Rendered tournaments/_form.html.erb (Duration: 3.8ms | Allocations: 1195)
+  Rendered tournaments/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1251)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 4394)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 4724)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 04:02:25 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.2ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 953)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 4109)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.2ms | Allocations: 4436)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 04:02:27 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 941)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4097)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.1ms | Allocations: 4422)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 04:02:28 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
