@@ -1,0 +1,39 @@
+.color1 {
+    color: #213435;
+}
+.color2 {
+    color: #46685b;
+}
+.color3 {
+    color: #648a64;
+}
+.color4 {
+    color: #a6b985;
+}
+.color5 {
+    color: #e1e3ac;
+}
+
+body {
+    background-color: #648a64;
+}
+
+.bg-c3 {
+    background-color: #648a64;
+}
+
+.bg-c5 {
+    background-color: #e1e3ac;
+}
+
+.navbar-wrapper {
+    padding: 20px 28px;
+}
+
+.navbar-wrapper a {
+    text-decoration: none;
+}
+
+.navbar-wrapper a:hover {
+    text-decoration: underline;
+}
