@@ -1,10 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @player %>
-
-<div>
-  <%= link_to "Edit this player", edit_player_path(@player) %> |
-  <%= link_to "Back to players", players_path %>
-
-  <%= button_to "Destroy this player", @player, method: :delete %>
+<div class="d-flex flex-column align-items-center w-100">
+  <div class="d-flex flex-column align-items-center rounded-4 bg-c4 w-50 py-3 mb-2">
+    <%= render @player %>
+    <button type="button" class="btn btn-lg bg-c2 rounded-4 align-self-center mb-3">
+      <a class="text-black text-decoration-none px-4" href="/players/<%= @player.id %>/edit">Edit</a>
+    </button>
+    <%= button_to "Destroy this player", @player, method: :delete %>
+  </div>
+  <button type="button" class="btn btn-lg bg-c2 rounded-4 align-self-center mb-5">
+    <a class="text-black text-decoration-none px-4" href="/players">Back to Players</a>
+  </button>
 </div>

@@ -18,8 +18,24 @@ body {
     background-color: #648a64;
 }
 
+.btn:hover {
+    background-color: #46685bb3;
+}
+
+.bg-c1 {
+    background-color: #213435;
+}
+
+.bg-c2 {
+    background-color: #46685b;
+}
+
 .bg-c3 {
     background-color: #648a64;
+}
+
+.bg-c4 {
+    background-color: #a6b985;
 }
 
 .bg-c5 {

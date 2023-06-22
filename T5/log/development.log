@@ -3860,3 +3860,3051 @@ Processing by PlayersController#index as HTML
 Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.1ms | Allocations: 4434)
 
 
+Started GET "/players/1" for ::1 at 2023-06-22 03:07:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.7ms | Allocations: 316)
+  Rendered players/show.html.erb within layouts/application (Duration: 20.4ms | Allocations: 1976)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 107.8ms | Allocations: 36279)
+Completed 200 OK in 142ms (Views: 110.2ms | ActiveRecord: 0.6ms | Allocations: 74195)
+
+
+Started GET "/players/1" for ::1 at 2023-06-22 03:07:07 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 580)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3715)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 4472)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:07:08 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:10:02 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.8ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1162)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 4825)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.1ms | Allocations: 6365)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:10:04 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:10:05 -0300
+Processing by PlayersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 593)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 3758)
+Completed 200 OK in 18ms (Views: 14.7ms | ActiveRecord: 0.1ms | Allocations: 4569)
+
+
+Started GET "/players/1" for ::1 at 2023-06-22 03:10:53 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.7ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1164)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 6657)
+Completed 200 OK in 32ms (Views: 26.6ms | ActiveRecord: 0.1ms | Allocations: 8198)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:10:55 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:10:58 -0300
+Processing by PlayersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 611)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 3746)
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.5ms | Allocations: 4537)
+
+
+Started GET "/players/1" for ::1 at 2023-06-22 03:11:42 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.8ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1174)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 4838)
+Completed 200 OK in 20ms (Views: 17.4ms | ActiveRecord: 0.1ms | Allocations: 6383)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:11:44 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:12:34 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 3.0ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 9.2ms | Allocations: 1179)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 27.6ms | Allocations: 4844)
+Completed 200 OK in 36ms (Views: 33.3ms | ActiveRecord: 0.2ms | Allocations: 6402)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:12:36 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players" for ::1 at 2023-06-22 03:12:38 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1265)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4421)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.2ms | Allocations: 4833)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:13:06 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 1.6ms | Allocations: 269)
+  Rendered players/_player.html.erb (Duration: 0.4ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 1548)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 5237)
+Completed 200 OK in 28ms (Views: 25.9ms | ActiveRecord: 0.1ms | Allocations: 6348)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:13:07 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 955)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 4111)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.1ms | Allocations: 4437)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:13:08 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/sw.js" for ::1 at 2023-06-22 03:13:09 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players" for ::1 at 2023-06-22 03:13:14 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.6ms | Allocations: 269)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1537)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 5227)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.1ms | Allocations: 6347)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:13:16 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players" for ::1 at 2023-06-22 03:14:00 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.7ms | Allocations: 269)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1541)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 153)
+  Rendered layout layouts/application.html.erb (Duration: 24.1ms | Allocations: 6457)
+Completed 200 OK in 28ms (Views: 27.1ms | ActiveRecord: 0.1ms | Allocations: 7569)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:14:02 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players" for ::1 at 2023-06-22 03:14:35 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.7ms | Allocations: 269)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 1533)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 28.9ms | Allocations: 8012)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.1ms | Allocations: 9124)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:14:36 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players" for ::1 at 2023-06-22 03:14:52 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 1.8ms | Allocations: 269)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 13.1ms | Allocations: 1537)
+  Rendered layouts/_navbar.html.erb (Duration: 2.0ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 5226)
+Completed 200 OK in 35ms (Views: 30.3ms | ActiveRecord: 0.3ms | Allocations: 6339)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:14:54 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/new" for ::1 at 2023-06-22 03:15:21 -0300
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 12.2ms | Allocations: 5980)
+  Rendered players/new.html.erb within layouts/application (Duration: 13.2ms | Allocations: 6286)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 9429)
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.0ms | Allocations: 9838)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:15:23 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 942)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 4098)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.2ms | Allocations: 4425)
+
+
+Started GET "/players/1" for ::1 at 2023-06-22 03:15:26 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 820)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3955)
+Completed 200 OK in 16ms (Views: 10.4ms | ActiveRecord: 0.2ms | Allocations: 4789)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:15:28 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 955)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 4111)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.1ms | Allocations: 4438)
+
+
+Started GET "/players/1" for ::1 at 2023-06-22 03:15:30 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 564)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 3699)
+Completed 200 OK in 15ms (Views: 11.1ms | ActiveRecord: 0.2ms | Allocations: 4456)
+
+
+Started GET "/players/1" for ::1 at 2023-06-22 03:15:51 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.6ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1173)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 4836)
+Completed 200 OK in 16ms (Views: 11.7ms | ActiveRecord: 0.1ms | Allocations: 6377)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:15:53 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:16:03 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.8ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1169)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4832)
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.1ms | Allocations: 6373)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:16:04 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:16:40 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 2.1ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1179)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 4871)
+Completed 200 OK in 23ms (Views: 18.4ms | ActiveRecord: 0.3ms | Allocations: 6414)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:16:41 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:16:51 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.7ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1183)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4875)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.1ms | Allocations: 6417)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:16:53 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:17:07 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.6ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1184)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 4847)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.1ms | Allocations: 6389)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:17:09 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1/edit" for ::1 at 2023-06-22 03:17:13 -0300
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 2.7ms | Allocations: 2043)
+  Rendered players/edit.html.erb within layouts/application (Duration: 12.0ms | Allocations: 2400)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 5535)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.3ms | Allocations: 6346)
+
+
+Started GET "/players/1/edit" for ::1 at 2023-06-22 03:19:01 -0300
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 6.0ms | Allocations: 2049)
+  Rendered players/edit.html.erb within layouts/application (Duration: 8.3ms | Allocations: 2421)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | Allocations: 6086)
+Completed 200 OK in 26ms (Views: 22.4ms | ActiveRecord: 0.2ms | Allocations: 7605)
+
+
+Started GET "/players/1/edit" for ::1 at 2023-06-22 03:19:22 -0300
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 3.3ms | Allocations: 2048)
+  Rendered players/edit.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2420)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 6085)
+Completed 200 OK in 17ms (Views: 11.7ms | ActiveRecord: 0.4ms | Allocations: 7603)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:19:24 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:19:26 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 1.1ms | Allocations: 266)
+  Rendered players/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1152)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 4316)
+Completed 200 OK in 16ms (Views: 13.0ms | ActiveRecord: 0.2ms | Allocations: 5152)
+
+
+Started GET "/players/1/edit" for ::1 at 2023-06-22 03:19:28 -0300
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 3.6ms | Allocations: 1512)
+  Rendered players/edit.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1633)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 4768)
+Completed 200 OK in 19ms (Views: 15.6ms | ActiveRecord: 0.2ms | Allocations: 5525)
+
+
+Started GET "/players/1" for ::1 at 2023-06-22 03:19:29 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 568)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 3703)
+Completed 200 OK in 14ms (Views: 9.1ms | ActiveRecord: 0.2ms | Allocations: 4460)
+
+
+Started GET "/players/1/edit" for ::1 at 2023-06-22 03:19:32 -0300
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.6ms | Allocations: 1517)
+  Rendered players/edit.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1638)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 4773)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.1ms | Allocations: 5530)
+
+
+Started GET "/players/1" for ::1 at 2023-06-22 03:19:34 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 576)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3721)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 0.1ms | Allocations: 4479)
+
+
+Started GET "/players/new" for ::1 at 2023-06-22 03:19:36 -0300
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.7ms | Allocations: 1420)
+  Rendered players/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1668)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 4830)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 5215)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:19:38 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1178)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 4334)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.2ms | Allocations: 4738)
+
+
+Started GET "/players/2" for ::1 at 2023-06-22 03:19:39 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 578)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 3713)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.1ms | Allocations: 4470)
+
+
+Started GET "/players/2/edit" for ::1 at 2023-06-22 03:19:40 -0300
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 2.5ms | Allocations: 1516)
+  Rendered players/edit.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1637)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 4772)
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.1ms | Allocations: 5529)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:19:43 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 941)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 4097)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.2ms | Allocations: 4424)
+
+
+Started GET "/players/1" for ::1 at 2023-06-22 03:19:44 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 564)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 3699)
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.2ms | Allocations: 4456)
+
+
+Started GET "/players/1" for ::1 at 2023-06-22 03:20:11 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 2.0ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1196)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 4859)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.1ms | Allocations: 6403)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:20:12 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:20:22 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 1.0ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1207)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 4899)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.1ms | Allocations: 6441)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:20:24 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:22:35 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.3ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 580)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 6517)
+Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 0.2ms | Allocations: 7273)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:22:37 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:22:53 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 566)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 5963)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.1ms | Allocations: 6717)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:22:54 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:23:06 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 566)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 5556)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.1ms | Allocations: 6311)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:23:07 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:23:38 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 570)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 4933)
+Completed 200 OK in 22ms (Views: 17.4ms | ActiveRecord: 0.1ms | Allocations: 5687)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:23:40 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:23:51 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 572)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 5559)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.1ms | Allocations: 6314)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:23:52 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:23:53 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 576)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 3711)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.1ms | Allocations: 4466)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:23:55 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1" for ::1 at 2023-06-22 03:24:04 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 570)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 5601)
+Completed 200 OK in 14ms (Views: 11.0ms | ActiveRecord: 0.4ms | Allocations: 6356)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:24:06 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started DELETE "/players/1" for ::1 at 2023-06-22 03:24:12 -0300
+Processing by PlayersController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:52:in `destroy'
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."player_id" = ? LIMIT ?[0m  [["player_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:52:in `destroy'
+  [1m[36mDocument Destroy (2.6ms)[0m  [1m[31mDELETE FROM "documents" WHERE "documents"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/players_controller.rb:52:in `destroy'
+  [1m[36mPlayer::HABTM_Tournaments Delete All (0.1ms)[0m  [1m[31mDELETE FROM "players_tournaments" WHERE "players_tournaments"."player_id" = ?[0m  [["player_id", 1]]
+  ↳ app/controllers/players_controller.rb:52:in `destroy'
+  [1m[36mPlayer Destroy (0.2ms)[0m  [1m[31mDELETE FROM "players" WHERE "players"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/players_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:52:in `destroy'
+Redirected to http://localhost:3000/players
+Completed 302 Found in 61ms (ActiveRecord: 7.8ms | Allocations: 38838)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:24:12 -0300
+Processing by PlayersController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1127)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 4312)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.1ms | Allocations: 4767)
+
+
+Started GET "/players/2" for ::1 at 2023-06-22 03:24:21 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 572)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 3707)
+Completed 200 OK in 13ms (Views: 10.2ms | ActiveRecord: 0.1ms | Allocations: 4464)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:24:26 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 972)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4195)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.2ms | Allocations: 5141)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 03:24:26 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.7ms | Allocations: 216)
+  Rendered teams/index.html.erb within layouts/application (Duration: 20.8ms | Allocations: 14879)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 18096)
+Completed 200 OK in 40ms (Views: 30.5ms | ActiveRecord: 1.1ms | Allocations: 20512)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:24:27 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 661)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 3847)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.2ms | Allocations: 4177)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:24:28 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.6ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 807)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 3963)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.2ms | Allocations: 4292)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 03:24:32 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.2ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.6ms | Allocations: 251)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 16.2ms | Allocations: 15441)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 18656)
+Completed 200 OK in 25ms (Views: 23.3ms | ActiveRecord: 0.8ms | Allocations: 19645)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:24:33 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 830)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3986)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.1ms | Allocations: 4314)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:24:35 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 666)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 3824)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.1ms | Allocations: 4152)
+
+
+Started GET "/documents/new" for ::1 at 2023-06-22 03:24:35 -0300
+Processing by DocumentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/new.html.erb within layouts/application
+  Rendered documents/_form.html.erb (Duration: 3.9ms | Allocations: 1799)
+  Rendered documents/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2112)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 5255)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 5646)
+
+
+Started POST "/documents" for ::1 at 2023-06-22 03:24:41 -0300
+Processing by DocumentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "document"=>{"number"=>"233", "emission"=>"20/06/2023", "player_id"=>"2"}, "commit"=>"Create Document"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  [1m[36mDocument Create (0.3ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 233], ["emission", "20/06/2023"], ["player_id", 2], ["created_at", "2023-06-22 06:24:41.334456"], ["updated_at", "2023-06-22 06:24:41.334456"]]
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/documents/2
+Completed 302 Found in 13ms (ActiveRecord: 3.5ms | Allocations: 4802)
+
+
+Started GET "/documents/2" for ::1 at 2023-06-22 03:24:41 -0300
+Processing by DocumentsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mDocument Load (0.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:63:in `set_document'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/show.html.erb within layouts/application
+  Rendered documents/_document.html.erb (Duration: 0.5ms | Allocations: 241)
+  Rendered documents/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1177)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 4312)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.2ms | Allocations: 5737)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:24:45 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 817)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3973)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.1ms | Allocations: 4300)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:24:47 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 816)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3972)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.1ms | Allocations: 4299)
+
+
+Started GET "/players/2" for ::1 at 2023-06-22 03:24:48 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 568)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 3703)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.3ms | Allocations: 4460)
+
+
+Started DELETE "/players/2" for ::1 at 2023-06-22 03:24:50 -0300
+Processing by PlayersController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:52:in `destroy'
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."player_id" = ? LIMIT ?[0m  [["player_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:52:in `destroy'
+  [1m[36mDocument Destroy (0.5ms)[0m  [1m[31mDELETE FROM "documents" WHERE "documents"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/players_controller.rb:52:in `destroy'
+  [1m[36mPlayer::HABTM_Tournaments Delete All (0.3ms)[0m  [1m[31mDELETE FROM "players_tournaments" WHERE "players_tournaments"."player_id" = ?[0m  [["player_id", 2]]
+  ↳ app/controllers/players_controller.rb:52:in `destroy'
+  [1m[36mPlayer Destroy (0.3ms)[0m  [1m[31mDELETE FROM "players" WHERE "players"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/players_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (16.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:52:in `destroy'
+Redirected to http://localhost:3000/players
+Completed 302 Found in 58ms (ActiveRecord: 18.3ms | Allocations: 4313)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:24:50 -0300
+Processing by PlayersController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 674)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 3864)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.6ms | Allocations: 4196)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:24:51 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 660)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 3819)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.1ms | Allocations: 4146)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:24:52 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 666)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 3852)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.2ms | Allocations: 4181)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:24:54 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 654)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3812)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.1ms | Allocations: 4139)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 03:24:55 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 812)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 3968)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.2ms | Allocations: 4296)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 03:24:55 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 813)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 3969)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.1ms | Allocations: 4296)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:24:58 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 658)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3816)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.1ms | Allocations: 4143)
+
+
+Started GET "/players/new" for ::1 at 2023-06-22 03:25:01 -0300
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 2.6ms | Allocations: 1923)
+  Rendered players/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2228)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 5371)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 5756)
+
+
+Started POST "/players" for ::1 at 2023-06-22 03:25:11 -0300
+Processing by PlayersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"name"=>"Joaquim", "age"=>"23", "career_time"=>"3", "team_id"=>"1"}, "commit"=>"Create Player"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:27:in `block in create'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:27:in `block in create'
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Joaquim"], ["age", 23], ["career_time", 3], ["team_id", 1], ["created_at", "2023-06-22 06:25:11.835115"], ["updated_at", "2023-06-22 06:25:11.835115"]]
+  ↳ app/controllers/players_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/players/3
+Completed 302 Found in 13ms (ActiveRecord: 4.4ms | Allocations: 4651)
+
+
+Started GET "/players/3" for ::1 at 2023-06-22 03:25:11 -0300
+Processing by PlayersController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 583)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 3718)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.1ms | Allocations: 4478)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:25:20 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 828)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 3984)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.7ms | Allocations: 4311)
+
+
+Started GET "/players/3" for ::1 at 2023-06-22 03:25:21 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 564)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 3699)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.1ms | Allocations: 4456)
+
+
+Started GET "/players/3" for ::1 at 2023-06-22 03:26:44 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.7ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1113)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 4776)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.1ms | Allocations: 6320)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:26:46 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/3" for ::1 at 2023-06-22 03:27:54 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 1.2ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1103)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 4795)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.1ms | Allocations: 6337)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:27:56 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/3" for ::1 at 2023-06-22 03:28:16 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.9ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1084)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 4747)
+Completed 200 OK in 19ms (Views: 13.9ms | ActiveRecord: 0.2ms | Allocations: 6289)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:28:18 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/3" for ::1 at 2023-06-22 03:28:27 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.8ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1093)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 4785)
+Completed 200 OK in 19ms (Views: 14.8ms | ActiveRecord: 0.1ms | Allocations: 6327)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:28:28 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/3" for ::1 at 2023-06-22 03:28:32 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.9ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1081)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 4744)
+Completed 200 OK in 23ms (Views: 18.8ms | ActiveRecord: 0.1ms | Allocations: 6285)
+
+
+Started GET "/players/3" for ::1 at 2023-06-22 03:28:33 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 519)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 3654)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.1ms | Allocations: 4410)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:28:33 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/sw.js" for ::1 at 2023-06-22 03:28:35 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/3" for ::1 at 2023-06-22 03:28:38 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.8ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1083)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 4775)
+Completed 200 OK in 29ms (Views: 25.9ms | ActiveRecord: 0.1ms | Allocations: 6316)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:28:40 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/3" for ::1 at 2023-06-22 03:28:44 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.7ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1085)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 4777)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.1ms | Allocations: 6319)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:28:46 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/new" for ::1 at 2023-06-22 03:29:06 -0300
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 5.1ms | Allocations: 1931)
+  Rendered players/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2236)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 5379)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 5764)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:29:08 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1060)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 4216)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.1ms | Allocations: 4620)
+
+
+Started GET "/players/3" for ::1 at 2023-06-22 03:29:11 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 501)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 3637)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.1ms | Allocations: 4394)
+
+
+Started GET "/players/new" for ::1 at 2023-06-22 03:29:14 -0300
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 2.7ms | Allocations: 1419)
+  Rendered players/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1504)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 4647)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.0ms | Allocations: 4978)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:29:18 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 812)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 3968)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.1ms | Allocations: 4295)
+
+
+Started GET "/players/3" for ::1 at 2023-06-22 03:29:19 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 511)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 3646)
+Completed 200 OK in 13ms (Views: 9.0ms | ActiveRecord: 0.1ms | Allocations: 4403)
+
+
+Started GET "/players/new" for ::1 at 2023-06-22 03:29:21 -0300
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 3.8ms | Allocations: 1407)
+  Rendered players/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1492)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | Allocations: 4635)
+Completed 200 OK in 25ms (Views: 21.8ms | ActiveRecord: 0.0ms | Allocations: 4966)
+
+
+Started GET "/players/new" for ::1 at 2023-06-22 03:29:29 -0300
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 7.8ms | Allocations: 1945)
+  Rendered players/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 2260)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 5933)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms | Allocations: 7024)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:29:30 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 1.1ms | Allocations: 266)
+  Rendered players/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1379)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 4535)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.2ms | Allocations: 4940)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:29:31 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/3" for ::1 at 2023-06-22 03:29:31 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 731)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3895)
+Completed 200 OK in 11ms (Views: 7.6ms | ActiveRecord: 0.1ms | Allocations: 4729)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:29:32 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 812)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 3968)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.1ms | Allocations: 4296)
+
+
+Started GET "/players/3" for ::1 at 2023-06-22 03:29:33 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 515)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 3650)
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 0.2ms | Allocations: 4407)
+
+
+Started GET "/players/3/edit" for ::1 at 2023-06-22 03:29:40 -0300
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 2.0ms | Allocations: 1511)
+  Rendered players/edit.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1813)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 4948)
+Completed 200 OK in 14ms (Views: 10.1ms | ActiveRecord: 0.2ms | Allocations: 5758)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:29:43 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 816)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 3972)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.2ms | Allocations: 4299)
+
+
+Started GET "/players/3" for ::1 at 2023-06-22 03:29:46 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 515)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 3667)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.1ms | Allocations: 4424)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:29:49 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 909)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 4144)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.2ms | Allocations: 5010)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:29:50 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 808)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 3964)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.2ms | Allocations: 4292)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:29:52 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 664)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 3822)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.2ms | Allocations: 4150)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:30:25 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 806)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 3962)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.1ms | Allocations: 4289)
+
+
+Started GET "/players/3" for ::1 at 2023-06-22 03:30:26 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 513)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3648)
+Completed 200 OK in 12ms (Views: 8.4ms | ActiveRecord: 0.3ms | Allocations: 4405)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:30:29 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 806)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 3962)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.2ms | Allocations: 4289)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:31:09 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.9ms | Allocations: 269)
+  Rendered players/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1411)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 5100)
+Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 0.2ms | Allocations: 6214)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:31:11 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/teams" for ::1 at 2023-06-22 03:31:11 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.9ms | Allocations: 205)
+  Rendered teams/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1347)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 4562)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.1ms | Allocations: 5427)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 03:31:14 -0300
+Processing by TeamsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 821)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 3977)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.1ms | Allocations: 4338)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:31:22 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.5ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 824)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 3980)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.1ms | Allocations: 4309)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:31:23 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.3ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 899)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 4122)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.3ms | Allocations: 4987)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:31:46 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 907)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4604)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.1ms | Allocations: 5716)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:31:47 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/documents" for ::1 at 2023-06-22 03:31:49 -0300
+Processing by DocumentsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.3ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 649)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 3836)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.3ms | Allocations: 4198)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:32:13 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 908)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 4606)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.1ms | Allocations: 5717)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 03:32:14 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 3.4ms | Allocations: 237)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 1379)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 4610)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.1ms | Allocations: 5475)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:32:15 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/tournaments" for ::1 at 2023-06-22 03:32:17 -0300
+Processing by TournamentsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.2ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 841)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 4009)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.2ms | Allocations: 4371)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 03:33:52 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.5ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 1.8ms | Allocations: 237)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 1379)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 5068)
+Completed 200 OK in 20ms (Views: 18.1ms | ActiveRecord: 0.5ms | Allocations: 6179)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:33:53 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 1.0ms | Allocations: 269)
+  Rendered players/index.html.erb within layouts/application (Duration: 8.8ms | Allocations: 1399)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 4614)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.2ms | Allocations: 5479)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:33:53 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/3" for ::1 at 2023-06-22 03:33:54 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 731)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 3866)
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.2ms | Allocations: 4700)
+
+
+Started GET "/players/3" for ::1 at 2023-06-22 03:34:23 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 1.0ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1085)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 151)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 4780)
+Completed 200 OK in 28ms (Views: 25.5ms | ActiveRecord: 0.2ms | Allocations: 6322)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:34:24 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/3" for ::1 at 2023-06-22 03:35:43 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 1.3ms | Allocations: 269)
+  Rendered players/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1076)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 4768)
+Completed 200 OK in 23ms (Views: 19.1ms | ActiveRecord: 0.2ms | Allocations: 6310)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 03:35:45 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 2.8ms | Allocations: 205)
+  Rendered teams/index.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1351)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 4566)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.1ms | Allocations: 5431)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:35:45 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/teams/1" for ::1 at 2023-06-22 03:35:46 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/_team.html.erb (Duration: 0.4ms | Allocations: 19)
+  Rendered teams/_team.html.erb (Duration: 0.2ms | Allocations: 17)
+  Rendered teams/show.html.erb within layouts/application (Duration: 7.6ms | Allocations: 822)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 3969)
+Completed 200 OK in 20ms (Views: 15.2ms | ActiveRecord: 0.2ms | Allocations: 5364)
+
+
+Started GET "/teams/1" for ::1 at 2023-06-22 03:35:55 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/_team.html.erb (Duration: 1.4ms | Allocations: 205)
+  Rendered teams/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1022)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 4685)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.1ms | Allocations: 6226)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:35:57 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1/edit" for ::1 at 2023-06-22 03:35:59 -0300
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 916)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Player with 'id'=1):
+  
+app/controllers/players_controller.rb:63:in `set_player'
+Started GET "/players/1/edit" for ::1 at 2023-06-22 03:36:10 -0300
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms | Allocations: 897)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Player with 'id'=1):
+  
+app/controllers/players_controller.rb:63:in `set_player'
+Started GET "/sw.js" for ::1 at 2023-06-22 03:36:12 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/1/edit" for ::1 at 2023-06-22 03:36:12 -0300
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 895)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Player with 'id'=1):
+  
+app/controllers/players_controller.rb:63:in `set_player'
+Started GET "/sw.js" for ::1 at 2023-06-22 03:36:14 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/players/" for ::1 at 2023-06-22 03:36:17 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 2.1ms | Allocations: 270)
+  Rendered players/index.html.erb within layouts/application (Duration: 10.8ms | Allocations: 1412)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 5130)
+Completed 200 OK in 27ms (Views: 25.3ms | ActiveRecord: 0.5ms | Allocations: 6197)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 03:36:18 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.6ms | Allocations: 205)
+  Rendered teams/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1349)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4564)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.1ms | Allocations: 5430)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:36:18 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/teams/1" for ::1 at 2023-06-22 03:36:19 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 723)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 3858)
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 4692)
+
+
+Started GET "/teams/1/edit" for ::1 at 2023-06-22 03:36:20 -0300
+Processing by TeamsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/edit.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 2.6ms | Allocations: 1536)
+  Rendered teams/edit.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1896)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 5031)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.1ms | Allocations: 5842)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 03:36:24 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered teams/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 808)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 3993)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.2ms | Allocations: 4321)
+
+
+Started GET "/teams/1" for ::1 at 2023-06-22 03:36:25 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 519)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 3657)
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.2ms | Allocations: 4414)
+
+
+Started GET "/teams/1/edit" for ::1 at 2023-06-22 03:36:27 -0300
+Processing by TeamsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/edit.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 2.0ms | Allocations: 1065)
+  Rendered teams/edit.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1186)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 4321)
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 0.1ms | Allocations: 5078)
+
+
+Started GET "/teams/1" for ::1 at 2023-06-22 03:36:27 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 511)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 3646)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.1ms | Allocations: 4404)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 03:36:30 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 812)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3968)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 4295)
+
+
+Started GET "/teams/1" for ::1 at 2023-06-22 03:36:31 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 505)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3640)
+Completed 200 OK in 10ms (Views: 6.2ms | ActiveRecord: 0.1ms | Allocations: 4397)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 03:36:32 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 816)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 3972)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.2ms | Allocations: 4299)
+
+
+Started GET "/teams/1" for ::1 at 2023-06-22 03:36:32 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/_team.html.erb (Duration: 0.4ms | Allocations: 19)
+  Rendered teams/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 513)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 3648)
+Completed 200 OK in 13ms (Views: 9.3ms | ActiveRecord: 0.2ms | Allocations: 4405)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:36:42 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 814)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3970)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.1ms | Allocations: 4299)
+
+
+Started GET "/players/3" for ::1 at 2023-06-22 03:36:43 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 733)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 3868)
+Completed 200 OK in 16ms (Views: 11.8ms | ActiveRecord: 0.2ms | Allocations: 4702)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 03:37:04 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 1.0ms | Allocations: 19)
+  Rendered teams/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 808)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 27.7ms | Allocations: 3964)
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.5ms | Allocations: 4292)
+
+
+Started GET "/teams/1" for ::1 at 2023-06-22 03:37:07 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 525)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 3660)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.1ms | Allocations: 4417)
+
+
+Started GET "/teams/1/edit" for ::1 at 2023-06-22 03:37:08 -0300
+Processing by TeamsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/edit.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 2.1ms | Allocations: 1049)
+  Rendered teams/edit.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1170)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 4305)
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.2ms | Allocations: 5062)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 03:37:10 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 808)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 3964)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 4291)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 03:38:17 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 2.1ms | Allocations: 205)
+  Rendered teams/index.html.erb within layouts/application (Duration: 11.7ms | Allocations: 1357)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 5075)
+Completed 200 OK in 27ms (Views: 25.5ms | ActiveRecord: 0.2ms | Allocations: 6189)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:38:18 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 915)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 4138)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.1ms | Allocations: 5004)
+
+
+Started GET "/documents/new" for ::1 at 2023-06-22 03:38:19 -0300
+Processing by DocumentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/new.html.erb within layouts/application
+  Rendered documents/_form.html.erb (Duration: 4.3ms | Allocations: 1657)
+  Rendered documents/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1967)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 5110)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms | Allocations: 5494)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:38:19 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started POST "/documents" for ::1 at 2023-06-22 03:38:24 -0300
+Processing by DocumentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "document"=>{"number"=>"1234", "emission"=>"20/06/2023", "player_id"=>"2"}, "commit"=>"Create Document"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/new.html.erb within layouts/application
+  Rendered documents/_form.html.erb (Duration: 2.4ms | Allocations: 1513)
+  Rendered documents/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1598)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 4762)
+Completed 422 Unprocessable Entity in 18ms (Views: 7.5ms | ActiveRecord: 0.6ms | Allocations: 7710)
+
+
+Started POST "/documents" for ::1 at 2023-06-22 03:38:28 -0300
+Processing by DocumentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "document"=>{"number"=>"1234", "emission"=>"20/06/2023", "player_id"=>"1"}, "commit"=>"Create Document"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/new.html.erb within layouts/application
+  Rendered documents/_form.html.erb (Duration: 3.2ms | Allocations: 1410)
+  Rendered documents/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1495)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 4630)
+Completed 422 Unprocessable Entity in 24ms (Views: 13.1ms | ActiveRecord: 0.4ms | Allocations: 7549)
+
+
+Started POST "/documents" for ::1 at 2023-06-22 03:38:30 -0300
+Processing by DocumentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "document"=>{"number"=>"1234", "emission"=>"20/06/2023", "player_id"=>"1"}, "commit"=>"Create Document"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/new.html.erb within layouts/application
+  Rendered documents/_form.html.erb (Duration: 2.7ms | Allocations: 1410)
+  Rendered documents/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1495)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 4630)
+Completed 422 Unprocessable Entity in 18ms (Views: 11.1ms | ActiveRecord: 0.3ms | Allocations: 7545)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:38:31 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.6ms | Allocations: 269)
+  Rendered players/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1411)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4626)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 5491)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:38:33 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 658)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3816)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.1ms | Allocations: 4144)
+
+
+Started GET "/documents/new" for ::1 at 2023-06-22 03:38:34 -0300
+Processing by DocumentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/new.html.erb within layouts/application
+  Rendered documents/_form.html.erb (Duration: 3.9ms | Allocations: 1203)
+  Rendered documents/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1288)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 4431)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms | Allocations: 4761)
+
+
+Started POST "/documents" for ::1 at 2023-06-22 03:38:38 -0300
+Processing by DocumentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "document"=>{"number"=>"1234", "emission"=>"20/06/2023", "player_id"=>"3"}, "commit"=>"Create Document"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  [1m[36mDocument Create (0.4ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 1234], ["emission", "20/06/2023"], ["player_id", 3], ["created_at", "2023-06-22 06:38:38.722271"], ["updated_at", "2023-06-22 06:38:38.722271"]]
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/documents_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/documents/3
+Completed 302 Found in 11ms (ActiveRecord: 3.6ms | Allocations: 3047)
+
+
+Started GET "/documents/3" for ::1 at 2023-06-22 03:38:38 -0300
+Processing by DocumentsController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:63:in `set_document'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/show.html.erb within layouts/application
+  Rendered documents/_document.html.erb (Duration: 0.6ms | Allocations: 234)
+  Rendered documents/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2259)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 2330)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 3189)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    4:   <div class="d-flex flex-column align-items-center rounded-4 bg-c4 w-50 py-3 mb-2">
+    5:     <%= render @document %>
+    6:     <button type="button" class="btn btn-lg bg-c2 rounded-4 align-self-center mb-3">
+    7:       <a class="text-black text-decoration-none px-4" href="/documents/<%= @team.id %>/edit">Edit</a>
+    8:     </button>
+    9:     <%= button_to "Destroy this document", @document, method: :delete %>
+   10:   </div>
+  
+app/views/documents/show.html.erb:7
+Started GET "/documents/new" for ::1 at 2023-06-22 03:38:48 -0300
+Processing by DocumentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/new.html.erb within layouts/application
+  Rendered documents/_form.html.erb (Duration: 8.6ms | Allocations: 1680)
+  Rendered documents/new.html.erb within layouts/application (Duration: 11.1ms | Allocations: 1995)
+  Rendered layouts/_navbar.html.erb (Duration: 2.0ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | Allocations: 5697)
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 0.0ms | Allocations: 6810)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:38:50 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/documents" for ::1 at 2023-06-22 03:38:51 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.7ms | Allocations: 234)
+  Rendered documents/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1372)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 4528)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.1ms | Allocations: 4933)
+
+
+Started GET "/documents/3" for ::1 at 2023-06-22 03:38:53 -0300
+Processing by DocumentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:63:in `set_document'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/show.html.erb within layouts/application
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 731)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 3866)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.1ms | Allocations: 4700)
+
+
+Started GET "/documents/3/edit" for ::1 at 2023-06-22 03:38:55 -0300
+Processing by DocumentsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:63:in `set_document'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/edit.html.erb within layouts/application
+  Rendered documents/_form.html.erb (Duration: 3.2ms | Allocations: 1284)
+  Rendered documents/edit.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1586)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 4721)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.1ms | Allocations: 5532)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:38:56 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 13.3ms | Allocations: 818)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 26.4ms | Allocations: 4003)
+Completed 200 OK in 28ms (Views: 27.4ms | ActiveRecord: 0.1ms | Allocations: 4331)
+
+
+Started GET "/documents/new" for ::1 at 2023-06-22 03:38:58 -0300
+Processing by DocumentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/new.html.erb within layouts/application
+  Rendered documents/_form.html.erb (Duration: 11.7ms | Allocations: 1185)
+  Rendered documents/new.html.erb within layouts/application (Duration: 12.6ms | Allocations: 1270)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 24.2ms | Allocations: 4413)
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.0ms | Allocations: 4743)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:39:01 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 818)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 3974)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.1ms | Allocations: 4301)
+
+
+Started GET "/documents/3" for ::1 at 2023-06-22 03:39:03 -0300
+Processing by DocumentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:63:in `set_document'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/show.html.erb within layouts/application
+  Rendered documents/_document.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered documents/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 517)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 3652)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 0.1ms | Allocations: 4409)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:39:04 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.3ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 804)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 3960)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.1ms | Allocations: 4287)
+
+
+Started GET "/documents/3" for ::1 at 2023-06-22 03:39:05 -0300
+Processing by DocumentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDocument Load (0.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:63:in `set_document'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/show.html.erb within layouts/application
+  Rendered documents/_document.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered documents/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 507)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 3642)
+Completed 200 OK in 18ms (Views: 14.8ms | ActiveRecord: 0.2ms | Allocations: 4399)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:39:06 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.4ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.4ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 9.6ms | Allocations: 810)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 3966)
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.4ms | Allocations: 4293)
+
+
+Started GET "/documents/3" for ::1 at 2023-06-22 03:39:07 -0300
+Processing by DocumentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDocument Load (0.3ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:63:in `set_document'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/show.html.erb within layouts/application
+  Rendered documents/_document.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered documents/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 533)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 3668)
+Completed 200 OK in 19ms (Views: 14.9ms | ActiveRecord: 0.3ms | Allocations: 4425)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:39:08 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.3ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 808)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 3964)
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 0.3ms | Allocations: 4291)
+
+
+Started GET "/documents/3" for ::1 at 2023-06-22 03:39:09 -0300
+Processing by DocumentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDocument Load (0.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:63:in `set_document'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/show.html.erb within layouts/application
+  Rendered documents/_document.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered documents/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 511)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 3646)
+Completed 200 OK in 16ms (Views: 13.0ms | ActiveRecord: 0.2ms | Allocations: 4404)
+
+
+Started GET "/documents/3/edit" for ::1 at 2023-06-22 03:39:10 -0300
+Processing by DocumentsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:63:in `set_document'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/edit.html.erb within layouts/application
+  Rendered documents/_form.html.erb (Duration: 3.1ms | Allocations: 1278)
+  Rendered documents/edit.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1399)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 4534)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.1ms | Allocations: 5291)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:39:11 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.4ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 826)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 4011)
+Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.1ms | Allocations: 4338)
+
+
+Started GET "/documents/3" for ::1 at 2023-06-22 03:39:11 -0300
+Processing by DocumentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:63:in `set_document'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/show.html.erb within layouts/application
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 517)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3652)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.1ms | Allocations: 4409)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:39:14 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 810)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 3966)
+Completed 200 OK in 13ms (Views: 13.0ms | ActiveRecord: 0.1ms | Allocations: 4293)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:39:17 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 812)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 3968)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.1ms | Allocations: 4295)
+
+
+Started GET "/documents/3" for ::1 at 2023-06-22 03:39:19 -0300
+Processing by DocumentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDocument Load (0.9ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:63:in `set_document'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/show.html.erb within layouts/application
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 517)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 3652)
+Completed 200 OK in 29ms (Views: 21.6ms | ActiveRecord: 0.9ms | Allocations: 4409)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:39:21 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 816)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 3972)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.2ms | Allocations: 4299)
+
+
+Started GET "/documents/3" for ::1 at 2023-06-22 03:39:22 -0300
+Processing by DocumentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:63:in `set_document'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/show.html.erb within layouts/application
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 513)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3648)
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 4405)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:39:24 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.8ms | Allocations: 269)
+  Rendered players/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1418)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 4633)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.1ms | Allocations: 5499)
+
+
+Started GET "/players/3" for ::1 at 2023-06-22 03:39:25 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 728)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 3863)
+Completed 200 OK in 18ms (Views: 15.5ms | ActiveRecord: 0.2ms | Allocations: 4698)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 03:39:26 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 1.6ms | Allocations: 205)
+  Rendered teams/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1337)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 4552)
+Completed 200 OK in 27ms (Views: 25.6ms | ActiveRecord: 0.2ms | Allocations: 5418)
+
+
+Started GET "/teams/1" for ::1 at 2023-06-22 03:39:27 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (12.8ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:63:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 718)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 52.8ms | Allocations: 3853)
+Completed 200 OK in 70ms (Views: 54.8ms | ActiveRecord: 12.8ms | Allocations: 4688)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:39:28 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.3ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 11.4ms | Allocations: 808)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 65.3ms | Allocations: 3964)
+Completed 200 OK in 87ms (Views: 86.0ms | ActiveRecord: 0.1ms | Allocations: 4293)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:39:30 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 822)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4004)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.2ms | Allocations: 4333)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 03:39:55 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.2ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 1.2ms | Allocations: 237)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1387)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 4605)
+Completed 200 OK in 28ms (Views: 25.9ms | ActiveRecord: 0.2ms | Allocations: 5472)
+
+
+Started GET "/tournaments/1" for ::1 at 2023-06-22 03:39:56 -0300
+Processing by TournamentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTournament Load (0.4ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments" WHERE "tournaments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tournaments_controller.rb:63:in `set_tournament'
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/show.html.erb within layouts/application
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 792)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 3927)
+Completed 200 OK in 23ms (Views: 19.0ms | ActiveRecord: 0.4ms | Allocations: 5372)
+
+
+Started GET "/tournaments/1" for ::1 at 2023-06-22 03:40:53 -0300
+Processing by TournamentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments" WHERE "tournaments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tournaments_controller.rb:63:in `set_tournament'
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/show.html.erb within layouts/application
+  Rendered tournaments/_tournament.html.erb (Duration: 2.3ms | Allocations: 237)
+  Rendered tournaments/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1051)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 4714)
+Completed 200 OK in 19ms (Views: 15.7ms | ActiveRecord: 0.1ms | Allocations: 6259)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 03:40:55 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/tournaments/1/edit" for ::1 at 2023-06-22 03:40:56 -0300
+Processing by TournamentsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTournament Load (0.3ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments" WHERE "tournaments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tournaments_controller.rb:63:in `set_tournament'
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/edit.html.erb within layouts/application
+  Rendered tournaments/_form.html.erb (Duration: 11.2ms | Allocations: 1855)
+  Rendered tournaments/edit.html.erb within layouts/application (Duration: 14.8ms | Allocations: 2218)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 5353)
+Completed 200 OK in 26ms (Views: 21.5ms | ActiveRecord: 0.3ms | Allocations: 6166)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 03:40:57 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.2ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1060)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 4217)
+Completed 200 OK in 26ms (Views: 23.3ms | ActiveRecord: 0.2ms | Allocations: 4621)
+
+
+Started GET "/tournaments/1" for ::1 at 2023-06-22 03:40:58 -0300
+Processing by TournamentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTournament Load (0.2ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments" WHERE "tournaments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tournaments_controller.rb:63:in `set_tournament'
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/show.html.erb within layouts/application
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 509)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 3644)
+Completed 200 OK in 21ms (Views: 16.1ms | ActiveRecord: 0.2ms | Allocations: 4402)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 03:40:59 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.3ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 811)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 3967)
+Completed 200 OK in 26ms (Views: 24.7ms | ActiveRecord: 0.3ms | Allocations: 4294)
+
+
+Started GET "/tournaments/1" for ::1 at 2023-06-22 03:41:00 -0300
+Processing by TournamentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments" WHERE "tournaments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tournaments_controller.rb:63:in `set_tournament'
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/show.html.erb within layouts/application
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 515)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 3650)
+Completed 200 OK in 15ms (Views: 13.0ms | ActiveRecord: 0.1ms | Allocations: 4408)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 03:41:01 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.2ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 811)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 3967)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.2ms | Allocations: 4294)
+
+
+Started GET "/tournaments/1" for ::1 at 2023-06-22 03:41:03 -0300
+Processing by TournamentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments" WHERE "tournaments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tournaments_controller.rb:63:in `set_tournament'
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/show.html.erb within layouts/application
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 513)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3648)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.1ms | Allocations: 4406)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 03:41:07 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.2ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 1.0ms | Allocations: 21)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 809)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 3965)
+Completed 200 OK in 27ms (Views: 25.6ms | ActiveRecord: 0.2ms | Allocations: 4292)
+
+
+Started GET "/tournaments/new" for ::1 at 2023-06-22 03:41:08 -0300
+Processing by TournamentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/new.html.erb within layouts/application
+  Rendered tournaments/_form.html.erb (Duration: 3.9ms | Allocations: 1211)
+  Rendered tournaments/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1460)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 4603)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.0ms | Allocations: 4995)
+
+
+Started POST "/tournaments" for ::1 at 2023-06-22 03:41:19 -0300
+Processing by TournamentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tournament"=>{"name"=>"Brasileirão", "country"=>"Brazil", "foundation_year"=>"1980"}, "commit"=>"Create Tournament"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tournaments_controller.rb:27:in `block in create'
+  [1m[36mTournament Create (0.4ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Brasileirão"], ["country", "Brazil"], ["foundation_year", 1980], ["created_at", "2023-06-22 06:41:19.920158"], ["updated_at", "2023-06-22 06:41:19.920158"]]
+  ↳ app/controllers/tournaments_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (9.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tournaments_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/tournaments/2
+Completed 302 Found in 16ms (ActiveRecord: 9.8ms | Allocations: 2408)
+
+
+Started GET "/tournaments/2" for ::1 at 2023-06-22 03:41:19 -0300
+Processing by TournamentsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mTournament Load (0.3ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments" WHERE "tournaments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tournaments_controller.rb:63:in `set_tournament'
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/show.html.erb within layouts/application
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 585)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 3720)
+Completed 200 OK in 20ms (Views: 13.9ms | ActiveRecord: 0.3ms | Allocations: 4528)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 03:41:22 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 941)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 4097)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.1ms | Allocations: 4424)
+
+
+Started GET "/tournaments/1" for ::1 at 2023-06-22 03:41:24 -0300
+Processing by TournamentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments" WHERE "tournaments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tournaments_controller.rb:63:in `set_tournament'
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/show.html.erb within layouts/application
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 517)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3652)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 4410)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 03:41:30 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.2ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 959)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 4115)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.2ms | Allocations: 4442)
+
+
+Started GET "/tournaments/2" for ::1 at 2023-06-22 03:41:31 -0300
+Processing by TournamentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTournament Load (0.3ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments" WHERE "tournaments"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tournaments_controller.rb:63:in `set_tournament'
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/show.html.erb within layouts/application
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 511)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3646)
+Completed 200 OK in 15ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 4404)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 03:41:33 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.2ms | Allocations: 20)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 941)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 4097)
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.1ms | Allocations: 4424)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:41:36 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 1.9ms | Allocations: 269)
+  Rendered players/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1420)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 4635)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.1ms | Allocations: 5500)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:41:37 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.8ms | Allocations: 237)
+  Rendered documents/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1393)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 4608)
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.1ms | Allocations: 5473)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 03:41:37 -0300
+Processing by TournamentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.6ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 947)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 4103)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.6ms | Allocations: 4431)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 03:41:38 -0300
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 2.2ms | Allocations: 205)
+  Rendered teams/index.html.erb within layouts/application (Duration: 10.6ms | Allocations: 1350)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 4594)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.4ms | Allocations: 5461)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 03:41:38 -0300
+Processing by DocumentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.4ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 828)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 3984)
+Completed 200 OK in 20ms (Views: 18.1ms | ActiveRecord: 0.4ms | Allocations: 4313)
+
+
+Started GET "/players" for ::1 at 2023-06-22 03:41:38 -0300
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 1.4ms | Allocations: 23)
+  Rendered players/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 816)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 3975)
+Completed 200 OK in 24ms (Views: 21.7ms | ActiveRecord: 0.3ms | Allocations: 4304)
+
+
+Started GET "/players/3" for ::1 at 2023-06-22 03:41:41 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 723)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 3858)
+Completed 200 OK in 14ms (Views: 10.7ms | ActiveRecord: 0.2ms | Allocations: 4692)
+
+
+Started GET "/players/3/edit" for ::1 at 2023-06-22 03:41:42 -0300
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:63:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 3.0ms | Allocations: 2020)
+  Rendered players/edit.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2381)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 5516)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.1ms | Allocations: 6327)
+
+

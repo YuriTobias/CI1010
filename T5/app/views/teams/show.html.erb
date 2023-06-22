@@ -1,10 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @team %>
-
-<div>
-  <%= link_to "Edit this team", edit_team_path(@team) %> |
-  <%= link_to "Back to teams", teams_path %>
-
-  <%= button_to "Destroy this team", @team, method: :delete %>
+<div class="d-flex flex-column align-items-center w-100">
+  <div class="d-flex flex-column align-items-center rounded-4 bg-c4 w-50 py-3 mb-2">
+    <%= render @team %>
+    <button type="button" class="btn btn-lg bg-c2 rounded-4 align-self-center mb-3">
+      <a class="text-black text-decoration-none px-4" href="/teams/<%= @team.id %>/edit">Edit</a>
+    </button>
+    <%= button_to "Destroy this team", @team, method: :delete %>
+  </div>
+  <button type="button" class="btn btn-lg bg-c2 rounded-4 align-self-center mb-5">
+    <a class="text-black text-decoration-none px-4" href="/teams">Back to Teams</a>
+  </button>
 </div>
