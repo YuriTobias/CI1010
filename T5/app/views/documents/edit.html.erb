@@ -1,10 +1,13 @@
-<h1>Editing document</h1>
+<h1 class="text-center fw-bold mb-4">Editing document</h1>
 
-<%= render "form", document: @document %>
-
-<br>
-
-<div>
-  <%= link_to "Show this document", @document %> |
-  <%= link_to "Back to documents", documents_path %>
+<div class="d-flex flex-column align-items-center w-100">
+  <div class="d-flex flex-column align-items-center rounded-4 bg-c4 w-50 py-3 mb-2">
+    <%= render "form", document: @document %>
+    <button type="button" class="btn btn-lg bg-c2 rounded-4 align-self-center my-3">
+      <a class="text-black text-decoration-none px-4" href="/documents/<%= @document.id %>">Show document</a>
+    </button>
+  </div>
+  <button type="button" class="btn btn-lg bg-c2 rounded-4 align-self-center mb-5">
+    <a class="text-black text-decoration-none px-4" href="/documents">Back to Documents</a>
+  </button>
 </div>
