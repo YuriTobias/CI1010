@@ -13622,3 +13622,1027 @@ Processing by PlayersController#index as HTML
 Completed 200 OK in 46ms (Views: 14.5ms | ActiveRecord: 0.4ms | Allocations: 5355)
 
 
+Started GET "/" for ::1 at 2023-06-22 23:39:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#index as HTML
+Completed 401 Unauthorized in 14ms (ActiveRecord: 0.0ms | Allocations: 5129)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-06-22 23:39:06 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 979)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 15.9ms | Allocations: 4459)
+  Rendered layouts/_account_links.html.erb (Duration: 0.8ms | Allocations: 280)
+  Rendered layouts/_navbar.html.erb (Duration: 2.3ms | Allocations: 564)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.5ms | Allocations: 190)
+  Rendered layout layouts/application.html.erb (Duration: 117.7ms | Allocations: 31957)
+Completed 200 OK in 158ms (Views: 133.6ms | ActiveRecord: 0.6ms | Allocations: 53034)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 23:39:08 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlayers (20230622031949)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "career_time" integer, "team_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8880a915a5"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230622031949"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTeams (20230622032159)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "num_titles" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230622032159"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDocuments (20230622032446)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "documents" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "number" integer, "emission" varchar, "player_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2483ffa2c3"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_documents_on_player_id" ON "documents" ("player_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230622032446"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTournaments (20230622032745)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "tournaments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "country" varchar, "foundation_year" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230622032745"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateJoinTablePlayerTournament (20230622033043)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "players_tournaments" ("player_id" integer NOT NULL, "tournament_id" integer NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230622033043"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to DeviseCreateUsers (20230622144035)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230622144035"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-06-23 02:41:09.556168"], ["updated_at", "2023-06-23 02:41:09.556168"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_in" for ::1 at 2023-06-22 23:41:15 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.8ms | Allocations: 974)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 15.2ms | Allocations: 5245)
+  Rendered layouts/_account_links.html.erb (Duration: 0.7ms | Allocations: 308)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 592)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.7ms | Allocations: 190)
+  Rendered layout layouts/application.html.erb (Duration: 104.3ms | Allocations: 32838)
+Completed 200 OK in 151ms (Views: 114.0ms | ActiveRecord: 0.4ms | Allocations: 58209)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 23:41:17 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started POST "/users/sign_in" for ::1 at 2023-06-22 23:41:20 -0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 56ms (ActiveRecord: 0.2ms | Allocations: 3564)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 160)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1267)
+  Rendered layouts/_account_links.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 86)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 4601)
+Completed 200 OK in 240ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 6178)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-06-22 23:41:22 -0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 433)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 160)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1259)
+  Rendered layouts/_account_links.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 86)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4551)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 5116)
+
+
+Started POST "/users/sign_in" for ::1 at 2023-06-22 23:41:25 -0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.1ms | Allocations: 1355)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 160)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1259)
+  Rendered layouts/_account_links.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 86)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 4548)
+Completed 200 OK in 223ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 5135)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-06-22 23:41:28 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.6ms | Allocations: 253)
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 261)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 2377)
+  Rendered layouts/_account_links.html.erb (Duration: 0.2ms | Allocations: 55)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 116)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 5767)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.0ms | Allocations: 7048)
+
+
+Started POST "/users" for ::1 at 2023-06-22 23:41:35 -0300
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "admin@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-06-23 02:41:36.073001"], ["updated_at", "2023-06-23 02:41:36.073001"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 235ms (ActiveRecord: 4.3ms | Allocations: 7213)
+
+
+Started GET "/" for ::1 at 2023-06-22 23:41:36 -0300
+Processing by PlayersController#index as TURBO_STREAM
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 910)
+  Rendered layouts/_account_links.html.erb (Duration: 0.3ms | Allocations: 158)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 219)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 4459)
+Completed 200 OK in 29ms (Views: 7.4ms | ActiveRecord: 0.4ms | Allocations: 18841)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 23:41:39 -0300
+Processing by DocumentsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 890)
+  Rendered layouts/_account_links.html.erb (Duration: 0.3ms | Allocations: 147)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 208)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4375)
+Completed 200 OK in 22ms (Views: 11.4ms | ActiveRecord: 0.3ms | Allocations: 8004)
+
+
+Started GET "/players" for ::1 at 2023-06-22 23:41:39 -0300
+Processing by PlayersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 521)
+  Rendered layouts/_account_links.html.erb (Duration: 0.2ms | Allocations: 123)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 184)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3917)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.1ms | Allocations: 5389)
+
+
+Started GET "/users/sign_out" for ::1 at 2023-06-22 23:41:41 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 19ms (ActiveRecord: 0.1ms | Allocations: 2277)
+
+
+Started GET "/" for ::1 at 2023-06-22 23:41:41 -0300
+Processing by PlayersController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 298)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-06-22 23:41:41 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 160)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1274)
+  Rendered layouts/_account_links.html.erb (Duration: 0.2ms | Allocations: 53)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 114)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 4599)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 5285)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Flamengo"], ["num_titles", 38], ["created_at", "2023-06-23 02:41:50.973600"], ["updated_at", "2023-06-23 02:41:50.973600"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cruzeiro"], ["num_titles", 50], ["created_at", "2023-06-23 02:41:50.980383"], ["updated_at", "2023-06-23 02:41:50.980383"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Maringá"], ["num_titles", 2], ["created_at", "2023-06-23 02:41:50.984422"], ["updated_at", "2023-06-23 02:41:50.984422"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Coritiba"], ["num_titles", 17], ["created_at", "2023-06-23 02:41:50.989778"], ["updated_at", "2023-06-23 02:41:50.989778"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cuiabá"], ["num_titles", 28], ["created_at", "2023-06-23 02:41:50.994737"], ["updated_at", "2023-06-23 02:41:50.994737"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Liverpool"], ["num_titles", 63], ["created_at", "2023-06-23 02:41:50.999345"], ["updated_at", "2023-06-23 02:41:50.999345"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.2ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Copa do Brasil"], ["country", "Brazil"], ["foundation_year", 1990], ["created_at", "2023-06-23 02:41:51.017463"], ["updated_at", "2023-06-23 02:41:51.017463"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.6ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Libertadores da Ámerica"], ["country", "Argentina"], ["foundation_year", 1970], ["created_at", "2023-06-23 02:41:51.023981"], ["updated_at", "2023-06-23 02:41:51.023981"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.2ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Brasileirão Assaí"], ["country", "Brazil"], ["foundation_year", 1955], ["created_at", "2023-06-23 02:41:51.030392"], ["updated_at", "2023-06-23 02:41:51.030392"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.3ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Premier League"], ["country", "England"], ["foundation_year", 1930], ["created_at", "2023-06-23 02:41:51.036453"], ["updated_at", "2023-06-23 02:41:51.036453"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.2ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Campeonato Carioca"], ["country", "Brazil"], ["foundation_year", 1965], ["created_at", "2023-06-23 02:41:51.041740"], ["updated_at", "2023-06-23 02:41:51.041740"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Leo Pelé"], ["age", 24], ["career_time", 4], ["team_id", 1], ["created_at", "2023-06-23 02:41:51.069270"], ["updated_at", "2023-06-23 02:41:51.069270"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Patrick"], ["age", 30], ["career_time", 8], ["team_id", 2], ["created_at", "2023-06-23 02:41:51.077479"], ["updated_at", "2023-06-23 02:41:51.077479"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Edenilson"], ["age", 41], ["career_time", 30], ["team_id", 3], ["created_at", "2023-06-23 02:41:51.084082"], ["updated_at", "2023-06-23 02:41:51.084082"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Gabigol"], ["age", 26], ["career_time", 10], ["team_id", 4], ["created_at", "2023-06-23 02:41:51.092581"], ["updated_at", "2023-06-23 02:41:51.092581"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Matheus Vital"], ["age", 22], ["career_time", 5], ["team_id", 5], ["created_at", "2023-06-23 02:41:51.098964"], ["updated_at", "2023-06-23 02:41:51.098964"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.3ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "12/03/2005"], ["player_id", 1], ["created_at", "2023-06-23 02:41:51.119730"], ["updated_at", "2023-06-23 02:41:51.119730"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.2ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "27/06/2009"], ["player_id", 2], ["created_at", "2023-06-23 02:41:51.126621"], ["updated_at", "2023-06-23 02:41:51.126621"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.2ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "30/11/2002"], ["player_id", 3], ["created_at", "2023-06-23 02:41:51.132479"], ["updated_at", "2023-06-23 02:41:51.132479"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.2ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "24/02/2008"], ["player_id", 4], ["created_at", "2023-06-23 02:41:51.150057"], ["updated_at", "2023-06-23 02:41:51.150057"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.2ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "12/12/2012"], ["player_id", 5], ["created_at", "2023-06-23 02:41:51.158917"], ["updated_at", "2023-06-23 02:41:51.158917"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users/sign_in" for ::1 at 2023-06-22 23:41:58 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 974)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 5244)
+  Rendered layouts/_account_links.html.erb (Duration: 0.7ms | Allocations: 308)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 592)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.5ms | Allocations: 190)
+  Rendered layout layouts/application.html.erb (Duration: 96.4ms | Allocations: 32627)
+Completed 200 OK in 137ms (Views: 103.5ms | ActiveRecord: 0.5ms | Allocations: 58008)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 23:42:00 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started POST "/users/sign_in" for ::1 at 2023-06-22 23:42:03 -0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 329ms (ActiveRecord: 0.2ms | Allocations: 5808)
+
+
+Started GET "/" for ::1 at 2023-06-22 23:42:03 -0300
+Processing by PlayersController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 1.0ms | Allocations: 295)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 19.4ms | Allocations: 17015)
+  Rendered layouts/_account_links.html.erb (Duration: 0.3ms | Allocations: 123)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 184)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 20523)
+Completed 200 OK in 43ms (Views: 26.1ms | ActiveRecord: 0.9ms | Allocations: 34894)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 23:42:11 -0300
+Processing by DocumentsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.3ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 9.0ms | Allocations: 252)
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered documents/_document.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered documents/_document.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered documents/_document.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered documents/index.html.erb within layouts/application (Duration: 23.6ms | Allocations: 16130)
+  Rendered layouts/_account_links.html.erb (Duration: 0.2ms | Allocations: 118)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 179)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 27.9ms | Allocations: 19581)
+Completed 200 OK in 38ms (Views: 29.1ms | ActiveRecord: 0.8ms | Allocations: 23230)
+
+
+Started GET "/players" for ::1 at 2023-06-22 23:42:12 -0300
+Processing by PlayersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1200)
+  Rendered layouts/_account_links.html.erb (Duration: 0.1ms | Allocations: 108)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 169)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4580)
+Completed 200 OK in 10ms (Views: 7.6ms | ActiveRecord: 0.2ms | Allocations: 6042)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 23:42:48 -0300
+Processing by DocumentsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/_document.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered documents/_document.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered documents/_document.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered documents/_document.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered documents/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1189)
+  Rendered layouts/_account_links.html.erb (Duration: 0.2ms | Allocations: 108)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 169)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4569)
+Completed 200 OK in 13ms (Views: 8.7ms | ActiveRecord: 0.2ms | Allocations: 6028)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 23:42:57 -0300
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 2.1ms | Allocations: 216)
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered teams/index.html.erb within layouts/application (Duration: 26.6ms | Allocations: 15400)
+  Rendered layouts/_account_links.html.erb (Duration: 0.2ms | Allocations: 118)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 179)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 32.8ms | Allocations: 18850)
+Completed 200 OK in 47ms (Views: 35.6ms | ActiveRecord: 1.2ms | Allocations: 22441)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 23:42:58 -0300
+Processing by TournamentsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 1.1ms | Allocations: 251)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 13.8ms | Allocations: 15856)
+  Rendered layouts/_account_links.html.erb (Duration: 0.1ms | Allocations: 118)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 179)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 19307)
+Completed 200 OK in 32ms (Views: 18.3ms | ActiveRecord: 0.6ms | Allocations: 29855)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Flamengo"], ["num_titles", 38], ["created_at", "2023-06-23 02:45:29.035887"], ["updated_at", "2023-06-23 02:45:29.035887"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cruzeiro"], ["num_titles", 50], ["created_at", "2023-06-23 02:45:29.042090"], ["updated_at", "2023-06-23 02:45:29.042090"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.3ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Maringá"], ["num_titles", 2], ["created_at", "2023-06-23 02:45:29.047275"], ["updated_at", "2023-06-23 02:45:29.047275"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.3ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Coritiba"], ["num_titles", 17], ["created_at", "2023-06-23 02:45:29.052153"], ["updated_at", "2023-06-23 02:45:29.052153"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cuiabá"], ["num_titles", 28], ["created_at", "2023-06-23 02:45:29.057523"], ["updated_at", "2023-06-23 02:45:29.057523"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Liverpool"], ["num_titles", 63], ["created_at", "2023-06-23 02:45:29.062552"], ["updated_at", "2023-06-23 02:45:29.062552"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.3ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Copa do Brasil"], ["country", "Brazil"], ["foundation_year", 1990], ["created_at", "2023-06-23 02:45:29.082167"], ["updated_at", "2023-06-23 02:45:29.082167"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.3ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Libertadores da Ámerica"], ["country", "Argentina"], ["foundation_year", 1970], ["created_at", "2023-06-23 02:45:29.087706"], ["updated_at", "2023-06-23 02:45:29.087706"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.3ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Brasileirão Assaí"], ["country", "Brazil"], ["foundation_year", 1955], ["created_at", "2023-06-23 02:45:29.093636"], ["updated_at", "2023-06-23 02:45:29.093636"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.2ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Premier League"], ["country", "England"], ["foundation_year", 1930], ["created_at", "2023-06-23 02:45:29.100041"], ["updated_at", "2023-06-23 02:45:29.100041"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.2ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Campeonato Carioca"], ["country", "Brazil"], ["foundation_year", 1965], ["created_at", "2023-06-23 02:45:29.105371"], ["updated_at", "2023-06-23 02:45:29.105371"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Leo Pelé"], ["age", 24], ["career_time", 4], ["team_id", 1], ["created_at", "2023-06-23 02:45:29.132811"], ["updated_at", "2023-06-23 02:45:29.132811"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Patrick"], ["age", 30], ["career_time", 8], ["team_id", 2], ["created_at", "2023-06-23 02:45:29.139601"], ["updated_at", "2023-06-23 02:45:29.139601"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Edenilson"], ["age", 41], ["career_time", 30], ["team_id", 3], ["created_at", "2023-06-23 02:45:29.145969"], ["updated_at", "2023-06-23 02:45:29.145969"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Gabigol"], ["age", 26], ["career_time", 10], ["team_id", 4], ["created_at", "2023-06-23 02:45:29.152465"], ["updated_at", "2023-06-23 02:45:29.152465"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Matheus Vital"], ["age", 22], ["career_time", 5], ["team_id", 5], ["created_at", "2023-06-23 02:45:29.159145"], ["updated_at", "2023-06-23 02:45:29.159145"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.2ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "12/03/2005"], ["player_id", 1], ["created_at", "2023-06-23 02:45:29.176416"], ["updated_at", "2023-06-23 02:45:29.176416"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.2ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "27/06/2009"], ["player_id", 2], ["created_at", "2023-06-23 02:45:29.182372"], ["updated_at", "2023-06-23 02:45:29.182372"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.2ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "30/11/2002"], ["player_id", 3], ["created_at", "2023-06-23 02:45:29.188257"], ["updated_at", "2023-06-23 02:45:29.188257"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.2ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "24/02/2008"], ["player_id", 4], ["created_at", "2023-06-23 02:45:29.205794"], ["updated_at", "2023-06-23 02:45:29.205794"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.2ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "12/12/2012"], ["player_id", 5], ["created_at", "2023-06-23 02:45:29.212857"], ["updated_at", "2023-06-23 02:45:29.212857"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlayers (20230622031949)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "career_time" integer, "team_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8880a915a5"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230622031949"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTeams (20230622032159)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "num_titles" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230622032159"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDocuments (20230622032446)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "documents" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "number" integer, "emission" varchar, "player_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2483ffa2c3"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_documents_on_player_id" ON "documents" ("player_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230622032446"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTournaments (20230622032745)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "tournaments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "country" varchar, "foundation_year" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230622032745"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateJoinTablePlayerTournament (20230622033043)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "players_tournaments" ("player_id" integer NOT NULL, "tournament_id" integer NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230622033043"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to DeviseCreateUsers (20230622144035)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230622144035"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-06-23 02:45:37.632737"], ["updated_at", "2023-06-23 02:45:37.632737"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Flamengo"], ["num_titles", 38], ["created_at", "2023-06-23 02:45:40.274873"], ["updated_at", "2023-06-23 02:45:40.274873"]]
+  [1m[36mTRANSACTION (11.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cruzeiro"], ["num_titles", 50], ["created_at", "2023-06-23 02:45:40.289096"], ["updated_at", "2023-06-23 02:45:40.289096"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Maringá"], ["num_titles", 2], ["created_at", "2023-06-23 02:45:40.294299"], ["updated_at", "2023-06-23 02:45:40.294299"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Coritiba"], ["num_titles", 17], ["created_at", "2023-06-23 02:45:40.298843"], ["updated_at", "2023-06-23 02:45:40.298843"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cuiabá"], ["num_titles", 28], ["created_at", "2023-06-23 02:45:40.303198"], ["updated_at", "2023-06-23 02:45:40.303198"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.2ms)[0m  [1m[32mINSERT INTO "teams" ("name", "num_titles", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Liverpool"], ["num_titles", 63], ["created_at", "2023-06-23 02:45:40.308013"], ["updated_at", "2023-06-23 02:45:40.308013"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.4ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Copa do Brasil"], ["country", "Brazil"], ["foundation_year", 1990], ["created_at", "2023-06-23 02:45:40.323460"], ["updated_at", "2023-06-23 02:45:40.323460"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.2ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Libertadores da Ámerica"], ["country", "Argentina"], ["foundation_year", 1970], ["created_at", "2023-06-23 02:45:40.328084"], ["updated_at", "2023-06-23 02:45:40.328084"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.2ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Brasileirão Assaí"], ["country", "Brazil"], ["foundation_year", 1955], ["created_at", "2023-06-23 02:45:40.333131"], ["updated_at", "2023-06-23 02:45:40.333131"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.2ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Premier League"], ["country", "England"], ["foundation_year", 1930], ["created_at", "2023-06-23 02:45:40.338753"], ["updated_at", "2023-06-23 02:45:40.338753"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTournament Create (0.2ms)[0m  [1m[32mINSERT INTO "tournaments" ("name", "country", "foundation_year", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Campeonato Carioca"], ["country", "Brazil"], ["foundation_year", 1965], ["created_at", "2023-06-23 02:45:40.343478"], ["updated_at", "2023-06-23 02:45:40.343478"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Leo Pelé"], ["age", 24], ["career_time", 4], ["team_id", 1], ["created_at", "2023-06-23 02:45:40.367066"], ["updated_at", "2023-06-23 02:45:40.367066"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Patrick"], ["age", 30], ["career_time", 8], ["team_id", 2], ["created_at", "2023-06-23 02:45:40.374300"], ["updated_at", "2023-06-23 02:45:40.374300"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Edenilson"], ["age", 41], ["career_time", 30], ["team_id", 3], ["created_at", "2023-06-23 02:45:40.382182"], ["updated_at", "2023-06-23 02:45:40.382182"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Gabigol"], ["age", 26], ["career_time", 10], ["team_id", 4], ["created_at", "2023-06-23 02:45:40.388986"], ["updated_at", "2023-06-23 02:45:40.388986"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Matheus Vital"], ["age", 22], ["career_time", 5], ["team_id", 5], ["created_at", "2023-06-23 02:45:40.394774"], ["updated_at", "2023-06-23 02:45:40.394774"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.2ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "12/03/2005"], ["player_id", 1], ["created_at", "2023-06-23 02:45:40.412713"], ["updated_at", "2023-06-23 02:45:40.412713"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.2ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "27/06/2009"], ["player_id", 2], ["created_at", "2023-06-23 02:45:40.419500"], ["updated_at", "2023-06-23 02:45:40.419500"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.2ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "30/11/2002"], ["player_id", 3], ["created_at", "2023-06-23 02:45:40.425079"], ["updated_at", "2023-06-23 02:45:40.425079"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.2ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "24/02/2008"], ["player_id", 4], ["created_at", "2023-06-23 02:45:40.444103"], ["updated_at", "2023-06-23 02:45:40.444103"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mDocument Create (0.2ms)[0m  [1m[32mINSERT INTO "documents" ("number", "emission", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["number", 8478760], ["emission", "12/12/2012"], ["player_id", 5], ["created_at", "2023-06-23 02:45:40.450882"], ["updated_at", "2023-06-23 02:45:40.450882"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/tournaments" for ::1 at 2023-06-22 23:45:57 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TournamentsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 15ms (ActiveRecord: 0.6ms | Allocations: 8926)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-06-22 23:45:57 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 979)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 4449)
+  Rendered layouts/_account_links.html.erb (Duration: 0.5ms | Allocations: 280)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 564)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.4ms | Allocations: 190)
+  Rendered layout layouts/application.html.erb (Duration: 79.8ms | Allocations: 31913)
+Completed 200 OK in 99ms (Views: 84.8ms | ActiveRecord: 0.0ms | Allocations: 52227)
+
+
+Started GET "/sw.js" for ::1 at 2023-06-22 23:45:58 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sw.js"):
+  
+Started GET "/users/sign_up" for ::1 at 2023-06-22 23:46:00 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 253)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 259)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2372)
+  Rendered layouts/_account_links.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 116)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 5807)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 7115)
+
+
+Started POST "/users" for ::1 at 2023-06-22 23:46:08 -0300
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "admin@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-06-23 02:46:08.447111"], ["updated_at", "2023-06-23 02:46:08.447111"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/tournaments
+Completed 303 See Other in 238ms (ActiveRecord: 3.9ms | Allocations: 8218)
+
+
+Started GET "/tournaments" for ::1 at 2023-06-22 23:46:08 -0300
+Processing by TournamentsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering tournaments/index.html.erb within layouts/application
+  [1m[36mTournament Load (0.1ms)[0m  [1m[34mSELECT "tournaments".* FROM "tournaments"[0m
+  ↳ app/views/tournaments/index.html.erb:6
+  Rendered tournaments/_tournament.html.erb (Duration: 0.6ms | Allocations: 260)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered tournaments/_tournament.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered tournaments/index.html.erb within layouts/application (Duration: 16.3ms | Allocations: 16454)
+  Rendered layouts/_account_links.html.erb (Duration: 0.1ms | Allocations: 123)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 19911)
+Completed 200 OK in 33ms (Views: 21.2ms | ActiveRecord: 0.6ms | Allocations: 31894)
+
+
+Started GET "/users/sign_out" for ::1 at 2023-06-22 23:46:12 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 7ms (ActiveRecord: 0.2ms | Allocations: 2307)
+
+
+Started GET "/" for ::1 at 2023-06-22 23:46:12 -0300
+Processing by PlayersController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 366)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-06-22 23:46:12 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 160)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1274)
+  Rendered layouts/_account_links.html.erb (Duration: 0.1ms | Allocations: 53)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 114)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 4601)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 5286)
+
+
+Started GET "/users/sign_up" for ::1 at 2023-06-22 23:46:14 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 93)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1229)
+  Rendered layouts/_account_links.html.erb (Duration: 0.1ms | Allocations: 53)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 114)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4562)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 5181)
+
+
+Started POST "/users" for ::1 at 2023-06-22 23:46:42 -0300
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"joaozin@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joaozin@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "joaozin@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-06-23 02:46:43.200507"], ["updated_at", "2023-06-23 02:46:43.200507"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 216ms (ActiveRecord: 3.4ms | Allocations: 5133)
+
+
+Started GET "/" for ::1 at 2023-06-22 23:46:43 -0300
+Processing by PlayersController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.5ms | Allocations: 286)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 12.8ms | Allocations: 16419)
+  Rendered layouts/_account_links.html.erb (Duration: 0.1ms | Allocations: 118)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 179)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 19869)
+Completed 200 OK in 32ms (Views: 16.9ms | ActiveRecord: 0.7ms | Allocations: 34994)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 23:46:45 -0300
+Processing by DocumentsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 1.0ms | Allocations: 252)
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered documents/index.html.erb within layouts/application (Duration: 21.7ms | Allocations: 16129)
+  Rendered layouts/_account_links.html.erb (Duration: 0.2ms | Allocations: 118)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 179)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 19579)
+Completed 200 OK in 35ms (Views: 26.7ms | ActiveRecord: 1.1ms | Allocations: 23207)
+
+
+Started GET "/documents/1" for ::1 at 2023-06-22 23:46:46 -0300
+Processing by DocumentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDocument Load (0.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/documents_controller.rb:64:in `set_document'
+  Rendering layout layouts/application.html.erb
+  Rendering documents/show.html.erb within layouts/application
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered documents/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 360)
+  Rendered layouts/_account_links.html.erb (Duration: 0.2ms | Allocations: 122)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 183)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3747)
+Completed 200 OK in 14ms (Views: 7.6ms | ActiveRecord: 0.4ms | Allocations: 6392)
+
+
+Started GET "/documents" for ::1 at 2023-06-22 23:46:47 -0300
+Processing by DocumentsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering documents/index.html.erb within layouts/application
+  [1m[36mDocument Load (0.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents"[0m
+  ↳ app/views/documents/index.html.erb:6
+  Rendered documents/_document.html.erb (Duration: 0.3ms | Allocations: 21)
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered documents/_document.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered documents/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1189)
+  Rendered layouts/_account_links.html.erb (Duration: 0.3ms | Allocations: 108)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 169)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 4569)
+Completed 200 OK in 18ms (Views: 12.5ms | ActiveRecord: 0.6ms | Allocations: 6019)
+
+
+Started GET "/players" for ::1 at 2023-06-22 23:46:48 -0300
+Processing by PlayersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1200)
+  Rendered layouts/_account_links.html.erb (Duration: 0.1ms | Allocations: 108)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 169)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 4580)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.2ms | Allocations: 6040)
+
+
+Started GET "/players/1" for ::1 at 2023-06-22 23:46:49 -0300
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:64:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 359)
+  Rendered layouts/_account_links.html.erb (Duration: 0.4ms | Allocations: 122)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 183)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 3746)
+Completed 200 OK in 17ms (Views: 10.5ms | ActiveRecord: 0.5ms | Allocations: 6339)
+
+
+Started GET "/players" for ::1 at 2023-06-22 23:46:49 -0300
+Processing by PlayersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1199)
+  Rendered layouts/_account_links.html.erb (Duration: 0.2ms | Allocations: 108)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 169)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 4579)
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 0.3ms | Allocations: 6033)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 23:46:50 -0300
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.5ms | Allocations: 216)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered teams/_team.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered teams/index.html.erb within layouts/application (Duration: 17.8ms | Allocations: 15400)
+  Rendered layouts/_account_links.html.erb (Duration: 0.2ms | Allocations: 118)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 179)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 18850)
+Completed 200 OK in 34ms (Views: 23.1ms | ActiveRecord: 1.0ms | Allocations: 22448)
+
+
+Started GET "/teams/1" for ::1 at 2023-06-22 23:46:51 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:64:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 355)
+  Rendered layouts/_account_links.html.erb (Duration: 0.2ms | Allocations: 122)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 183)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.0ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 3742)
+Completed 200 OK in 16ms (Views: 8.7ms | ActiveRecord: 0.4ms | Allocations: 6339)
+
+
+Started GET "/teams" for ::1 at 2023-06-22 23:46:51 -0300
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:6
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered teams/_team.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered teams/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1306)
+  Rendered layouts/_account_links.html.erb (Duration: 0.3ms | Allocations: 108)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 169)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 4686)
+Completed 200 OK in 19ms (Views: 14.7ms | ActiveRecord: 0.3ms | Allocations: 6142)
+
+
+Started GET "/players" for ::1 at 2023-06-22 23:46:52 -0300
+Processing by PlayersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1200)
+  Rendered layouts/_account_links.html.erb (Duration: 0.2ms | Allocations: 108)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 169)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 10)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 4580)
+Completed 200 OK in 19ms (Views: 13.7ms | ActiveRecord: 0.3ms | Allocations: 6042)
+
+
+Started GET "/users/sign_out" for ::1 at 2023-06-22 23:46:56 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 5ms (ActiveRecord: 0.1ms | Allocations: 1632)
+
+
+Started GET "/" for ::1 at 2023-06-22 23:46:56 -0300
+Processing by PlayersController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 278)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-06-22 23:46:56 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 160)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1271)
+  Rendered layouts/_account_links.html.erb (Duration: 0.1ms | Allocations: 53)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 114)
+  Rendered layouts/_back_to_top.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 4596)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 5302)
+
+

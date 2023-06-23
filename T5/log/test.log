@@ -1,0 +1,1370 @@
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "documents"[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "documents" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "number" integer, "emission" varchar, "player_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE INDEX "index_documents_on_player_id" ON "documents" ("player_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "players"[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "career_time" integer, "team_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "players_tournaments"[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "players_tournaments" ("player_id" integer NOT NULL, "tournament_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "teams"[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "num_titles" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tournaments"[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "tournaments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "country" varchar, "foundation_year" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adocuments" ("id" integer NOT NULL PRIMARY KEY, "number" integer DEFAULT NULL, "emission" varchar DEFAULT NULL, "player_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_adocuments_on_player_id" ON "adocuments" ("player_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "adocuments" ("id","number","emission","player_id","created_at","updated_at")
+                     SELECT "id","number","emission","player_id","created_at","updated_at" FROM "documents"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "documents"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "documents" ("id" integer NOT NULL PRIMARY KEY, "number" integer DEFAULT NULL, "emission" varchar DEFAULT NULL, "player_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2483ffa2c3"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_documents_on_player_id" ON "documents" ("player_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "documents" ("id","number","emission","player_id","created_at","updated_at")
+                     SELECT "id","number","emission","player_id","created_at","updated_at" FROM "adocuments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "adocuments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "career_time" integer DEFAULT NULL, "team_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aplayers_on_team_id" ON "aplayers" ("team_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","name","age","career_time","team_id","created_at","updated_at")
+                     SELECT "id","name","age","career_time","team_id","created_at","updated_at" FROM "players"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "career_time" integer DEFAULT NULL, "team_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8880a915a5"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "players" ("id","name","age","career_time","team_id","created_at","updated_at")
+                     SELECT "id","name","age","career_time","team_id","created_at","updated_at" FROM "aplayers"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (10.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230622144035)[0m
+  [1m[35m (8.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230622031949),
+(20230622032159),
+(20230622032446),
+(20230622032745),
+(20230622033043);
+
+[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2023-06-22 15:49:56.750830"], ["updated_at", "2023-06-22 15:49:56.750830"]]
+  [1m[36mTRANSACTION (8.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "ad4832216c22f5b05f6063a553ee65496deca29d"], ["created_at", "2023-06-22 15:49:56.769932"], ["updated_at", "2023-06-22 15:49:56.769932"]]
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.1ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:57.093949', '2023-06-22 15:49:57.093949');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:57.093949', '2023-06-22 15:49:57.093949');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:57.100522', '2023-06-22 15:49:57.100522');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:57.100522', '2023-06-22 15:49:57.100522');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:57.103417', '2023-06-22 15:49:57.103417');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:57.103417', '2023-06-22 15:49:57.103417');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:57.104679', '2023-06-22 15:49:57.104679');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:57.104679', '2023-06-22 15:49:57.104679');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:57.106584', '2023-06-22 15:49:57.106584');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:57.106584', '2023-06-22 15:49:57.106584')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.5ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:57.888163', '2023-06-22 15:49:57.888163');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:57.888163', '2023-06-22 15:49:57.888163');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:57.888428', '2023-06-22 15:49:57.888428');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:57.888428', '2023-06-22 15:49:57.888428');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:57.888683', '2023-06-22 15:49:57.888683');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:57.888683', '2023-06-22 15:49:57.888683');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:57.888815', '2023-06-22 15:49:57.888815');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:57.888815', '2023-06-22 15:49:57.888815');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:57.888935', '2023-06-22 15:49:57.888935');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:57.888935', '2023-06-22 15:49:57.888935')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.3ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:57.929089', '2023-06-22 15:49:57.929089');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:57.929089', '2023-06-22 15:49:57.929089');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:57.929563', '2023-06-22 15:49:57.929563');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:57.929563', '2023-06-22 15:49:57.929563');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:57.929877', '2023-06-22 15:49:57.929877');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:57.929877', '2023-06-22 15:49:57.929877');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:57.930044', '2023-06-22 15:49:57.930044');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:57.930044', '2023-06-22 15:49:57.930044');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:57.930215', '2023-06-22 15:49:57.930215');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:57.930215', '2023-06-22 15:49:57.930215')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (2.1ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:57.967027', '2023-06-22 15:49:57.967027');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:57.967027', '2023-06-22 15:49:57.967027');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:57.967275', '2023-06-22 15:49:57.967275');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:57.967275', '2023-06-22 15:49:57.967275');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:57.967456', '2023-06-22 15:49:57.967456');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:57.967456', '2023-06-22 15:49:57.967456');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:57.967547', '2023-06-22 15:49:57.967547');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:57.967547', '2023-06-22 15:49:57.967547');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:57.967657', '2023-06-22 15:49:57.967657');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:57.967657', '2023-06-22 15:49:57.967657')[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.3ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.005031', '2023-06-22 15:49:58.005031');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.005031', '2023-06-22 15:49:58.005031');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.005322', '2023-06-22 15:49:58.005322');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.005322', '2023-06-22 15:49:58.005322');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.005515', '2023-06-22 15:49:58.005515');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.005515', '2023-06-22 15:49:58.005515');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.005620', '2023-06-22 15:49:58.005620');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.005620', '2023-06-22 15:49:58.005620');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.005752', '2023-06-22 15:49:58.005752');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.005752', '2023-06-22 15:49:58.005752')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (3.1ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.047949', '2023-06-22 15:49:58.047949');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.047949', '2023-06-22 15:49:58.047949');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.048699', '2023-06-22 15:49:58.048699');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.048699', '2023-06-22 15:49:58.048699');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.049062', '2023-06-22 15:49:58.049062');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.049062', '2023-06-22 15:49:58.049062');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.049231', '2023-06-22 15:49:58.049231');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.049231', '2023-06-22 15:49:58.049231');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.049448', '2023-06-22 15:49:58.049448');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.049448', '2023-06-22 15:49:58.049448')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (2.0ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.089370', '2023-06-22 15:49:58.089370');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.089370', '2023-06-22 15:49:58.089370');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.089586', '2023-06-22 15:49:58.089586');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.089586', '2023-06-22 15:49:58.089586');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.089733', '2023-06-22 15:49:58.089733');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.089733', '2023-06-22 15:49:58.089733');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.089821', '2023-06-22 15:49:58.089821');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.089821', '2023-06-22 15:49:58.089821');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.089918', '2023-06-22 15:49:58.089918');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.089918', '2023-06-22 15:49:58.089918')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.136951', '2023-06-22 15:49:58.136951');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.136951', '2023-06-22 15:49:58.136951');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.137342', '2023-06-22 15:49:58.137342');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.137342', '2023-06-22 15:49:58.137342');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.137678', '2023-06-22 15:49:58.137678');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.137678', '2023-06-22 15:49:58.137678');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.137876', '2023-06-22 15:49:58.137876');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.137876', '2023-06-22 15:49:58.137876');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.138114', '2023-06-22 15:49:58.138114');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.138114', '2023-06-22 15:49:58.138114')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.0ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.165013', '2023-06-22 15:49:58.165013');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.165013', '2023-06-22 15:49:58.165013');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.165282', '2023-06-22 15:49:58.165282');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.165282', '2023-06-22 15:49:58.165282');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.165492', '2023-06-22 15:49:58.165492');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.165492', '2023-06-22 15:49:58.165492');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.165594', '2023-06-22 15:49:58.165594');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.165594', '2023-06-22 15:49:58.165594');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.165730', '2023-06-22 15:49:58.165730');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.165730', '2023-06-22 15:49:58.165730')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.4ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.193640', '2023-06-22 15:49:58.193640');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.193640', '2023-06-22 15:49:58.193640');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.194272', '2023-06-22 15:49:58.194272');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.194272', '2023-06-22 15:49:58.194272');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.195917', '2023-06-22 15:49:58.195917');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.195917', '2023-06-22 15:49:58.195917');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.196082', '2023-06-22 15:49:58.196082');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.196082', '2023-06-22 15:49:58.196082');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.196214', '2023-06-22 15:49:58.196214');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.196214', '2023-06-22 15:49:58.196214')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.3ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.220623', '2023-06-22 15:49:58.220623');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.220623', '2023-06-22 15:49:58.220623');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.221116', '2023-06-22 15:49:58.221116');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.221116', '2023-06-22 15:49:58.221116');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.221236', '2023-06-22 15:49:58.221236');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.221236', '2023-06-22 15:49:58.221236');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.221294', '2023-06-22 15:49:58.221294');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.221294', '2023-06-22 15:49:58.221294');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.221415', '2023-06-22 15:49:58.221415');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.221415', '2023-06-22 15:49:58.221415')[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.9ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.247301', '2023-06-22 15:49:58.247301');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.247301', '2023-06-22 15:49:58.247301');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.247564', '2023-06-22 15:49:58.247564');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.247564', '2023-06-22 15:49:58.247564');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.247765', '2023-06-22 15:49:58.247765');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.247765', '2023-06-22 15:49:58.247765');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.247876', '2023-06-22 15:49:58.247876');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.247876', '2023-06-22 15:49:58.247876');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.248005', '2023-06-22 15:49:58.248005');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.248005', '2023-06-22 15:49:58.248005')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.273595', '2023-06-22 15:49:58.273595');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.273595', '2023-06-22 15:49:58.273595');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.273756', '2023-06-22 15:49:58.273756');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.273756', '2023-06-22 15:49:58.273756');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.273870', '2023-06-22 15:49:58.273870');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.273870', '2023-06-22 15:49:58.273870');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.273929', '2023-06-22 15:49:58.273929');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.273929', '2023-06-22 15:49:58.273929');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.273995', '2023-06-22 15:49:58.273995');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.273995', '2023-06-22 15:49:58.273995')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.301055', '2023-06-22 15:49:58.301055');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.301055', '2023-06-22 15:49:58.301055');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.301361', '2023-06-22 15:49:58.301361');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.301361', '2023-06-22 15:49:58.301361');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.301507', '2023-06-22 15:49:58.301507');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.301507', '2023-06-22 15:49:58.301507');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.301571', '2023-06-22 15:49:58.301571');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.301571', '2023-06-22 15:49:58.301571');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.301644', '2023-06-22 15:49:58.301644');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.301644', '2023-06-22 15:49:58.301644')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.3ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.325322', '2023-06-22 15:49:58.325322');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.325322', '2023-06-22 15:49:58.325322');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.325505', '2023-06-22 15:49:58.325505');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.325505', '2023-06-22 15:49:58.325505');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.326574', '2023-06-22 15:49:58.326574');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.326574', '2023-06-22 15:49:58.326574');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.326759', '2023-06-22 15:49:58.326759');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.326759', '2023-06-22 15:49:58.326759');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.326892', '2023-06-22 15:49:58.326892');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.326892', '2023-06-22 15:49:58.326892')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.352845', '2023-06-22 15:49:58.352845');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.352845', '2023-06-22 15:49:58.352845');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.353012', '2023-06-22 15:49:58.353012');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.353012', '2023-06-22 15:49:58.353012');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.353140', '2023-06-22 15:49:58.353140');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.353140', '2023-06-22 15:49:58.353140');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.353205', '2023-06-22 15:49:58.353205');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.353205', '2023-06-22 15:49:58.353205');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.353273', '2023-06-22 15:49:58.353273');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.353273', '2023-06-22 15:49:58.353273')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.376786', '2023-06-22 15:49:58.376786');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.376786', '2023-06-22 15:49:58.376786');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.377032', '2023-06-22 15:49:58.377032');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.377032', '2023-06-22 15:49:58.377032');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.377147', '2023-06-22 15:49:58.377147');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.377147', '2023-06-22 15:49:58.377147');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.377240', '2023-06-22 15:49:58.377240');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.377240', '2023-06-22 15:49:58.377240');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.377411', '2023-06-22 15:49:58.377411');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.377411', '2023-06-22 15:49:58.377411')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.401385', '2023-06-22 15:49:58.401385');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.401385', '2023-06-22 15:49:58.401385');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.401673', '2023-06-22 15:49:58.401673');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.401673', '2023-06-22 15:49:58.401673');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.401825', '2023-06-22 15:49:58.401825');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.401825', '2023-06-22 15:49:58.401825');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.401896', '2023-06-22 15:49:58.401896');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.401896', '2023-06-22 15:49:58.401896');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.401983', '2023-06-22 15:49:58.401983');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.401983', '2023-06-22 15:49:58.401983')[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.0ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.427090', '2023-06-22 15:49:58.427090');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.427090', '2023-06-22 15:49:58.427090');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.427490', '2023-06-22 15:49:58.427490');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.427490', '2023-06-22 15:49:58.427490');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.429299', '2023-06-22 15:49:58.429299');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.429299', '2023-06-22 15:49:58.429299');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.429698', '2023-06-22 15:49:58.429698');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.429698', '2023-06-22 15:49:58.429698');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.429801', '2023-06-22 15:49:58.429801');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.429801', '2023-06-22 15:49:58.429801')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.0ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.452996', '2023-06-22 15:49:58.452996');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.452996', '2023-06-22 15:49:58.452996');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.453161', '2023-06-22 15:49:58.453161');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.453161', '2023-06-22 15:49:58.453161');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.453280', '2023-06-22 15:49:58.453280');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.453280', '2023-06-22 15:49:58.453280');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.453339', '2023-06-22 15:49:58.453339');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.453339', '2023-06-22 15:49:58.453339');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.453408', '2023-06-22 15:49:58.453408');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.453408', '2023-06-22 15:49:58.453408')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.477088', '2023-06-22 15:49:58.477088');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.477088', '2023-06-22 15:49:58.477088');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.477415', '2023-06-22 15:49:58.477415');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.477415', '2023-06-22 15:49:58.477415');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.477809', '2023-06-22 15:49:58.477809');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.477809', '2023-06-22 15:49:58.477809');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.478488', '2023-06-22 15:49:58.478488');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.478488', '2023-06-22 15:49:58.478488');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.479063', '2023-06-22 15:49:58.479063');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.479063', '2023-06-22 15:49:58.479063')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.1ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.506956', '2023-06-22 15:49:58.506956');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.506956', '2023-06-22 15:49:58.506956');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.507114', '2023-06-22 15:49:58.507114');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.507114', '2023-06-22 15:49:58.507114');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.507228', '2023-06-22 15:49:58.507228');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.507228', '2023-06-22 15:49:58.507228');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.507299', '2023-06-22 15:49:58.507299');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.507299', '2023-06-22 15:49:58.507299');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.507413', '2023-06-22 15:49:58.507413');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.507413', '2023-06-22 15:49:58.507413')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.3ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.535247', '2023-06-22 15:49:58.535247');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.535247', '2023-06-22 15:49:58.535247');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.535451', '2023-06-22 15:49:58.535451');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.535451', '2023-06-22 15:49:58.535451');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.535571', '2023-06-22 15:49:58.535571');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.535571', '2023-06-22 15:49:58.535571');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.535643', '2023-06-22 15:49:58.535643');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.535643', '2023-06-22 15:49:58.535643');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.535739', '2023-06-22 15:49:58.535739');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.535739', '2023-06-22 15:49:58.535739')[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.1ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.560430', '2023-06-22 15:49:58.560430');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.560430', '2023-06-22 15:49:58.560430');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.560680', '2023-06-22 15:49:58.560680');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.560680', '2023-06-22 15:49:58.560680');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.560949', '2023-06-22 15:49:58.560949');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.560949', '2023-06-22 15:49:58.560949');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.561665', '2023-06-22 15:49:58.561665');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.561665', '2023-06-22 15:49:58.561665');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.562300', '2023-06-22 15:49:58.562300');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.562300', '2023-06-22 15:49:58.562300')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.585767', '2023-06-22 15:49:58.585767');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.585767', '2023-06-22 15:49:58.585767');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.585933', '2023-06-22 15:49:58.585933');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.585933', '2023-06-22 15:49:58.585933');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.586049', '2023-06-22 15:49:58.586049');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.586049', '2023-06-22 15:49:58.586049');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.586110', '2023-06-22 15:49:58.586110');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.586110', '2023-06-22 15:49:58.586110');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.586179', '2023-06-22 15:49:58.586179');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.586179', '2023-06-22 15:49:58.586179')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.7ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.612818', '2023-06-22 15:49:58.612818');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.612818', '2023-06-22 15:49:58.612818');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.613469', '2023-06-22 15:49:58.613469');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.613469', '2023-06-22 15:49:58.613469');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.613657', '2023-06-22 15:49:58.613657');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.613657', '2023-06-22 15:49:58.613657');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.613861', '2023-06-22 15:49:58.613861');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.613861', '2023-06-22 15:49:58.613861');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.614013', '2023-06-22 15:49:58.614013');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.614013', '2023-06-22 15:49:58.614013')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.0ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.641700', '2023-06-22 15:49:58.641700');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.641700', '2023-06-22 15:49:58.641700');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.641900', '2023-06-22 15:49:58.641900');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.641900', '2023-06-22 15:49:58.641900');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.642111', '2023-06-22 15:49:58.642111');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.642111', '2023-06-22 15:49:58.642111');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.642228', '2023-06-22 15:49:58.642228');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.642228', '2023-06-22 15:49:58.642228');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.642360', '2023-06-22 15:49:58.642360');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.642360', '2023-06-22 15:49:58.642360')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.7ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:49:58.670518', '2023-06-22 15:49:58.670518');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:49:58.670518', '2023-06-22 15:49:58.670518');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:49:58.670801', '2023-06-22 15:49:58.670801');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:49:58.670801', '2023-06-22 15:49:58.670801');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:49:58.670962', '2023-06-22 15:49:58.670962');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:49:58.670962', '2023-06-22 15:49:58.670962');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.671017', '2023-06-22 15:49:58.671017');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:49:58.671017', '2023-06-22 15:49:58.671017');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:49:58.671082', '2023-06-22 15:49:58.671082');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:49:58.671082', '2023-06-22 15:49:58.671082')[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.455007', '2023-06-22 15:50:35.455007');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.455007', '2023-06-22 15:50:35.455007');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.458526', '2023-06-22 15:50:35.458526');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.458526', '2023-06-22 15:50:35.458526');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.460663', '2023-06-22 15:50:35.460663');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.460663', '2023-06-22 15:50:35.460663');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.461627', '2023-06-22 15:50:35.461627');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.461627', '2023-06-22 15:50:35.461627');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.463322', '2023-06-22 15:50:35.463322');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.463322', '2023-06-22 15:50:35.463322')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.732128', '2023-06-22 15:50:35.732128');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.732128', '2023-06-22 15:50:35.732128');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.732263', '2023-06-22 15:50:35.732263');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.732263', '2023-06-22 15:50:35.732263');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.732357', '2023-06-22 15:50:35.732357');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.732357', '2023-06-22 15:50:35.732357');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.732403', '2023-06-22 15:50:35.732403');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.732403', '2023-06-22 15:50:35.732403');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.732458', '2023-06-22 15:50:35.732458');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.732458', '2023-06-22 15:50:35.732458')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.748095', '2023-06-22 15:50:35.748095');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.748095', '2023-06-22 15:50:35.748095');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.748225', '2023-06-22 15:50:35.748225');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.748225', '2023-06-22 15:50:35.748225');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.748350', '2023-06-22 15:50:35.748350');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.748350', '2023-06-22 15:50:35.748350');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.748398', '2023-06-22 15:50:35.748398');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.748398', '2023-06-22 15:50:35.748398');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.748454', '2023-06-22 15:50:35.748454');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.748454', '2023-06-22 15:50:35.748454')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.762902', '2023-06-22 15:50:35.762902');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.762902', '2023-06-22 15:50:35.762902');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.763051', '2023-06-22 15:50:35.763051');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.763051', '2023-06-22 15:50:35.763051');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.763145', '2023-06-22 15:50:35.763145');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.763145', '2023-06-22 15:50:35.763145');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.763279', '2023-06-22 15:50:35.763279');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.763279', '2023-06-22 15:50:35.763279');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.763345', '2023-06-22 15:50:35.763345');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.763345', '2023-06-22 15:50:35.763345')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.777759', '2023-06-22 15:50:35.777759');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.777759', '2023-06-22 15:50:35.777759');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.777951', '2023-06-22 15:50:35.777951');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.777951', '2023-06-22 15:50:35.777951');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.778104', '2023-06-22 15:50:35.778104');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.778104', '2023-06-22 15:50:35.778104');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.778181', '2023-06-22 15:50:35.778181');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.778181', '2023-06-22 15:50:35.778181');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.778276', '2023-06-22 15:50:35.778276');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.778276', '2023-06-22 15:50:35.778276')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.798316', '2023-06-22 15:50:35.798316');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.798316', '2023-06-22 15:50:35.798316');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.798447', '2023-06-22 15:50:35.798447');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.798447', '2023-06-22 15:50:35.798447');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.798540', '2023-06-22 15:50:35.798540');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.798540', '2023-06-22 15:50:35.798540');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.798586', '2023-06-22 15:50:35.798586');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.798586', '2023-06-22 15:50:35.798586');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.798647', '2023-06-22 15:50:35.798647');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.798647', '2023-06-22 15:50:35.798647')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.3ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.815705', '2023-06-22 15:50:35.815705');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.815705', '2023-06-22 15:50:35.815705');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.815841', '2023-06-22 15:50:35.815841');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.815841', '2023-06-22 15:50:35.815841');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.815937', '2023-06-22 15:50:35.815937');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.815937', '2023-06-22 15:50:35.815937');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.815986', '2023-06-22 15:50:35.815986');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.815986', '2023-06-22 15:50:35.815986');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.816200', '2023-06-22 15:50:35.816200');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.816200', '2023-06-22 15:50:35.816200')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.835654', '2023-06-22 15:50:35.835654');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.835654', '2023-06-22 15:50:35.835654');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.835783', '2023-06-22 15:50:35.835783');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.835783', '2023-06-22 15:50:35.835783');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.835877', '2023-06-22 15:50:35.835877');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.835877', '2023-06-22 15:50:35.835877');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.835930', '2023-06-22 15:50:35.835930');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.835930', '2023-06-22 15:50:35.835930');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.835985', '2023-06-22 15:50:35.835985');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.835985', '2023-06-22 15:50:35.835985')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.850532', '2023-06-22 15:50:35.850532');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.850532', '2023-06-22 15:50:35.850532');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.850663', '2023-06-22 15:50:35.850663');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.850663', '2023-06-22 15:50:35.850663');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.850757', '2023-06-22 15:50:35.850757');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.850757', '2023-06-22 15:50:35.850757');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.850810', '2023-06-22 15:50:35.850810');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.850810', '2023-06-22 15:50:35.850810');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.850868', '2023-06-22 15:50:35.850868');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.850868', '2023-06-22 15:50:35.850868')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.864646', '2023-06-22 15:50:35.864646');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.864646', '2023-06-22 15:50:35.864646');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.864826', '2023-06-22 15:50:35.864826');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.864826', '2023-06-22 15:50:35.864826');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.865002', '2023-06-22 15:50:35.865002');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.865002', '2023-06-22 15:50:35.865002');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.865055', '2023-06-22 15:50:35.865055');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.865055', '2023-06-22 15:50:35.865055');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.865117', '2023-06-22 15:50:35.865117');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.865117', '2023-06-22 15:50:35.865117')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.880620', '2023-06-22 15:50:35.880620');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.880620', '2023-06-22 15:50:35.880620');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.880749', '2023-06-22 15:50:35.880749');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.880749', '2023-06-22 15:50:35.880749');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.880842', '2023-06-22 15:50:35.880842');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.880842', '2023-06-22 15:50:35.880842');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.880889', '2023-06-22 15:50:35.880889');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.880889', '2023-06-22 15:50:35.880889');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.880951', '2023-06-22 15:50:35.880951');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.880951', '2023-06-22 15:50:35.880951')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.894789', '2023-06-22 15:50:35.894789');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.894789', '2023-06-22 15:50:35.894789');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.894938', '2023-06-22 15:50:35.894938');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.894938', '2023-06-22 15:50:35.894938');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.895034', '2023-06-22 15:50:35.895034');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.895034', '2023-06-22 15:50:35.895034');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.895080', '2023-06-22 15:50:35.895080');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.895080', '2023-06-22 15:50:35.895080');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.895149', '2023-06-22 15:50:35.895149');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.895149', '2023-06-22 15:50:35.895149')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.910049', '2023-06-22 15:50:35.910049');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.910049', '2023-06-22 15:50:35.910049');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.910215', '2023-06-22 15:50:35.910215');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.910215', '2023-06-22 15:50:35.910215');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.910312', '2023-06-22 15:50:35.910312');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.910312', '2023-06-22 15:50:35.910312');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.910360', '2023-06-22 15:50:35.910360');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.910360', '2023-06-22 15:50:35.910360');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.910426', '2023-06-22 15:50:35.910426');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.910426', '2023-06-22 15:50:35.910426')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.925792', '2023-06-22 15:50:35.925792');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.925792', '2023-06-22 15:50:35.925792');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.926002', '2023-06-22 15:50:35.926002');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.926002', '2023-06-22 15:50:35.926002');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.926116', '2023-06-22 15:50:35.926116');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.926116', '2023-06-22 15:50:35.926116');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.926160', '2023-06-22 15:50:35.926160');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.926160', '2023-06-22 15:50:35.926160');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.926215', '2023-06-22 15:50:35.926215');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.926215', '2023-06-22 15:50:35.926215')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.940206', '2023-06-22 15:50:35.940206');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.940206', '2023-06-22 15:50:35.940206');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.940335', '2023-06-22 15:50:35.940335');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.940335', '2023-06-22 15:50:35.940335');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.940427', '2023-06-22 15:50:35.940427');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.940427', '2023-06-22 15:50:35.940427');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.940473', '2023-06-22 15:50:35.940473');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.940473', '2023-06-22 15:50:35.940473');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.940528', '2023-06-22 15:50:35.940528');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.940528', '2023-06-22 15:50:35.940528')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.5ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.958918', '2023-06-22 15:50:35.958918');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.958918', '2023-06-22 15:50:35.958918');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.959098', '2023-06-22 15:50:35.959098');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.959098', '2023-06-22 15:50:35.959098');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.959255', '2023-06-22 15:50:35.959255');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.959255', '2023-06-22 15:50:35.959255');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.959344', '2023-06-22 15:50:35.959344');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.959344', '2023-06-22 15:50:35.959344');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.959450', '2023-06-22 15:50:35.959450');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.959450', '2023-06-22 15:50:35.959450')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.6ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.980548', '2023-06-22 15:50:35.980548');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.980548', '2023-06-22 15:50:35.980548');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.980689', '2023-06-22 15:50:35.980689');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.980689', '2023-06-22 15:50:35.980689');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.980872', '2023-06-22 15:50:35.980872');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.980872', '2023-06-22 15:50:35.980872');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.980925', '2023-06-22 15:50:35.980925');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.980925', '2023-06-22 15:50:35.980925');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.980982', '2023-06-22 15:50:35.980982');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.980982', '2023-06-22 15:50:35.980982')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:35.998094', '2023-06-22 15:50:35.998094');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:35.998094', '2023-06-22 15:50:35.998094');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:35.998225', '2023-06-22 15:50:35.998225');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:35.998225', '2023-06-22 15:50:35.998225');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:35.998318', '2023-06-22 15:50:35.998318');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:35.998318', '2023-06-22 15:50:35.998318');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.998365', '2023-06-22 15:50:35.998365');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:35.998365', '2023-06-22 15:50:35.998365');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:35.998419', '2023-06-22 15:50:35.998419');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:35.998419', '2023-06-22 15:50:35.998419')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:36.012822', '2023-06-22 15:50:36.012822');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:36.012822', '2023-06-22 15:50:36.012822');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:36.012951', '2023-06-22 15:50:36.012951');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:36.012951', '2023-06-22 15:50:36.012951');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:36.013042', '2023-06-22 15:50:36.013042');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:36.013042', '2023-06-22 15:50:36.013042');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.013119', '2023-06-22 15:50:36.013119');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.013119', '2023-06-22 15:50:36.013119');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:36.013172', '2023-06-22 15:50:36.013172');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:36.013172', '2023-06-22 15:50:36.013172')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:36.026322', '2023-06-22 15:50:36.026322');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:36.026322', '2023-06-22 15:50:36.026322');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:36.026453', '2023-06-22 15:50:36.026453');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:36.026453', '2023-06-22 15:50:36.026453');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:36.026556', '2023-06-22 15:50:36.026556');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:36.026556', '2023-06-22 15:50:36.026556');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.026603', '2023-06-22 15:50:36.026603');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.026603', '2023-06-22 15:50:36.026603');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:36.026658', '2023-06-22 15:50:36.026658');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:36.026658', '2023-06-22 15:50:36.026658')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:36.043369', '2023-06-22 15:50:36.043369');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:36.043369', '2023-06-22 15:50:36.043369');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:36.043568', '2023-06-22 15:50:36.043568');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:36.043568', '2023-06-22 15:50:36.043568');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:36.043669', '2023-06-22 15:50:36.043669');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:36.043669', '2023-06-22 15:50:36.043669');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.043717', '2023-06-22 15:50:36.043717');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.043717', '2023-06-22 15:50:36.043717');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:36.043772', '2023-06-22 15:50:36.043772');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:36.043772', '2023-06-22 15:50:36.043772')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:36.060536', '2023-06-22 15:50:36.060536');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:36.060536', '2023-06-22 15:50:36.060536');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:36.060699', '2023-06-22 15:50:36.060699');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:36.060699', '2023-06-22 15:50:36.060699');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:36.060913', '2023-06-22 15:50:36.060913');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:36.060913', '2023-06-22 15:50:36.060913');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.060984', '2023-06-22 15:50:36.060984');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.060984', '2023-06-22 15:50:36.060984');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:36.061054', '2023-06-22 15:50:36.061054');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:36.061054', '2023-06-22 15:50:36.061054')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.0ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:36.079451', '2023-06-22 15:50:36.079451');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:36.079451', '2023-06-22 15:50:36.079451');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:36.079609', '2023-06-22 15:50:36.079609');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:36.079609', '2023-06-22 15:50:36.079609');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:36.079904', '2023-06-22 15:50:36.079904');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:36.079904', '2023-06-22 15:50:36.079904');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.079972', '2023-06-22 15:50:36.079972');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.079972', '2023-06-22 15:50:36.079972');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:36.080043', '2023-06-22 15:50:36.080043');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:36.080043', '2023-06-22 15:50:36.080043')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:36.099935', '2023-06-22 15:50:36.099935');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:36.099935', '2023-06-22 15:50:36.099935');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:36.100100', '2023-06-22 15:50:36.100100');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:36.100100', '2023-06-22 15:50:36.100100');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:36.100217', '2023-06-22 15:50:36.100217');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:36.100217', '2023-06-22 15:50:36.100217');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.100298', '2023-06-22 15:50:36.100298');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.100298', '2023-06-22 15:50:36.100298');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:36.100426', '2023-06-22 15:50:36.100426');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:36.100426', '2023-06-22 15:50:36.100426')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.4ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:36.116726', '2023-06-22 15:50:36.116726');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:36.116726', '2023-06-22 15:50:36.116726');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:36.116956', '2023-06-22 15:50:36.116956');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:36.116956', '2023-06-22 15:50:36.116956');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:36.117076', '2023-06-22 15:50:36.117076');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:36.117076', '2023-06-22 15:50:36.117076');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.117136', '2023-06-22 15:50:36.117136');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.117136', '2023-06-22 15:50:36.117136');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:36.117425', '2023-06-22 15:50:36.117425');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:36.117425', '2023-06-22 15:50:36.117425')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:36.136151', '2023-06-22 15:50:36.136151');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:36.136151', '2023-06-22 15:50:36.136151');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:36.177244', '2023-06-22 15:50:36.177244');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:36.177244', '2023-06-22 15:50:36.177244');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:36.177398', '2023-06-22 15:50:36.177398');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:36.177398', '2023-06-22 15:50:36.177398');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.177461', '2023-06-22 15:50:36.177461');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.177461', '2023-06-22 15:50:36.177461');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:36.177548', '2023-06-22 15:50:36.177548');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:36.177548', '2023-06-22 15:50:36.177548')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.0ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:36.191817', '2023-06-22 15:50:36.191817');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:36.191817', '2023-06-22 15:50:36.191817');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:36.191935', '2023-06-22 15:50:36.191935');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:36.191935', '2023-06-22 15:50:36.191935');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:36.192025', '2023-06-22 15:50:36.192025');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:36.192025', '2023-06-22 15:50:36.192025');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.192072', '2023-06-22 15:50:36.192072');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.192072', '2023-06-22 15:50:36.192072');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:36.192127', '2023-06-22 15:50:36.192127');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:36.192127', '2023-06-22 15:50:36.192127')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "documents";
+DELETE FROM "players";
+DELETE FROM "teams";
+DELETE FROM "tournaments";
+DELETE FROM "users";
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 980190962, '2023-06-22 15:50:36.205074', '2023-06-22 15:50:36.205074');
+INSERT INTO "documents" ("id", "number", "emission", "player_id", "created_at", "updated_at") VALUES (298486374, 1, 'MyString', 298486374, '2023-06-22 15:50:36.205074', '2023-06-22 15:50:36.205074');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, 1, 980190962, '2023-06-22 15:50:36.205205', '2023-06-22 15:50:36.205205');
+INSERT INTO "players" ("id", "name", "age", "career_time", "team_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, 1, 298486374, '2023-06-22 15:50:36.205205', '2023-06-22 15:50:36.205205');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (980190962, 'MyString', 1, '2023-06-22 15:50:36.205303', '2023-06-22 15:50:36.205303');
+INSERT INTO "teams" ("id", "name", "num_titles", "created_at", "updated_at") VALUES (298486374, 'MyString', 1, '2023-06-22 15:50:36.205303', '2023-06-22 15:50:36.205303');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.205352', '2023-06-22 15:50:36.205352');
+INSERT INTO "tournaments" ("id", "name", "country", "foundation_year", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 1, '2023-06-22 15:50:36.205352', '2023-06-22 15:50:36.205352');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2023-06-22 15:50:36.205411', '2023-06-22 15:50:36.205411');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2023-06-22 15:50:36.205411', '2023-06-22 15:50:36.205411')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
